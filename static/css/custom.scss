@@ -71,3 +71,25 @@ article.blog-item{
   }
 
 }
+
+a.disable-style-link{
+  text-decoration: none;
+  color: inherit;
+  &:hover{
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.project-item{
+  img{
+    min-height: 18.75rem;
+    width: auto;
+  }
+  .card-body{
+    height: 23rem;
+    max-height: 500px;
+
+  }
+}
+

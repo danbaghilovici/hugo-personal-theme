@@ -38,5 +38,22 @@
 .tools-list .list-group-item p {
   display: inline;
 }
+a.disable-style-link {
+  text-decoration: none;
+  color: inherit;
+}
+a.disable-style-link:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.project-item img {
+  min-height: 18.75rem;
+  width: auto;
+}
+.project-item .card-body {
+  height: 23rem;
+  max-height: 500px;
+}
 
 /*# sourceMappingURL=custom.css.map */

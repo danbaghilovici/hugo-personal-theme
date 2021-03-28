@@ -1,0 +1,7 @@
+{{ define "main" }}
+{{with $.Site.Menus.main}}
+    {{ $.Scratch.Set "portfolioLink" (substr (index . 1).URL 1) }}
+{{end}}
+{{ partial "pages/portfolio/_list.html" (dict "projects" ($.Site.GetPage (.Scratch.Get "portfolioLink") .Section).Pages "limit" 10 "cols" 6)}}
+{{ end }}
+

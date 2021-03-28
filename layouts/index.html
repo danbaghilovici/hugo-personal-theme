@@ -40,8 +40,8 @@
 </section>
 <hr>
 <section class="pt-5">
-    <p class=" text-warning mb-0">{{upper (i18n "homeWhatMiniHeaderTextTranslation")}}</p>
-    <h1 class="font-boldest">{{humanize (i18n "homeWhatHeaderTextTranslation")}}</h1>
+    <p class=" text-warning mb-0 font-light">{{upper (i18n "homeWhatMiniHeaderTextTranslation")}}</p>
+    <h1 class="font-bolder">{{humanize (i18n "homeWhatHeaderTextTranslation")}}</h1>
     <p>{{i18n "homeWhatDescriptionIntroTextTranslation"}}
     {{i18n "homeWhatDescriptionIntroMainSkillsTextTranslation"}}
     </p>
@@ -66,28 +66,12 @@
 
 
 </section>
-<hr>
+{{with ($.Site.GetPage (.Scratch.Get "portfolioLink") .Section).Pages}}
 <section class="mt-5">
-    <p class="text-warning mb-0">PROJECTS</p>
-    <h1 class="font-boldest">I recently worked on</h1>
-
-    <div class="card" >
-        <img class="card-img-top" src="https://source.unsplash.com/1600x900/?app,screensharing" alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-    </div>
+    <p class="text-warning mb-0 font-light">{{i18n "homePortfolioMiniHeaderTextTranslation" | upper}}</p>
+    <h1 class="font-bolder">{{ humanize (i18n "homePortfolioHeaderTextTranslation")}}</h1>
+    {{ partial "pages/portfolio/_list.html" (dict "projects" . "limit" 3 "cols" 4) }}
 </section>
-<hr>
-<p>aaaa</p>
-<section class="mt-5">
-    <p class=" text-warning mb-0">BLOG</p>
-    <h1 class="font-boldest">Posts</h1>
-    {{range (.Site.GetPage (substr (index .Site.Menus.main 1).URL 1) .Section).Pages.ByPublishDate.Reverse | first 3 }}
-    {{- partial "blog-post-list-item.html" (dict "post" . "layout" "horizontal") -}}
-    {{end}}
-
-</section>
+{{end}}
+{{(.Scratch.Get "blogLink")}}
 {{end}}
