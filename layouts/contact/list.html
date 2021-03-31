@@ -1,0 +1,53 @@
+{{define "main"}}
+<section class="row">
+
+  <div class="col">
+    <div class="text-center">
+      <h3 class="font-bolder">{{humanize  (i18n "contactPageSubheaderTextTranslation")}}</h3>
+        <br>
+<p>
+        {{safeHTML  (i18n "contactPageSubheaderMailToTextTranslation" (dict "Count" 2 "emailToShow" (index $.Site.Params.ownerEmail 0))) }}
+      </p>
+      <p>{{humanize (i18n "contactPageSocialTextTranslation")}} {{humanize (i18n "contactPageFollowTextTranslation")}}</p>
+      <ul class="navbar-nav " style="padding: 0 25% 0 25%">
+        <li class="nav-item p-0">
+          <div class="row text-center">
+            {{range .Site.Params.ownerSocialLinks}}
+            <div class="col">
+              <a class="nav-link p-0" target="_blank" rel="noopener noreferrer" href="{{.link}}">{{safeHTML .class}}</a>
+            </div>
+            {{end}}
+          </div>
+
+        </li>
+
+      </ul>
+      <div class="pt-5">
+        <form id="contact-form" class="contact-form col-lg-8 mx-lg-auto" method="post" action="">
+          <h2 class="text-center font-bolder mb-3">{{(i18n "contactFormTitleTextTranslation" | title)}}</h2>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label class="sr-only" for="cname">{{i18n "contactFormNameFieldTextTranslation" | title}}</label>
+              <input type="text" class="form-control" id="cname" name="name" placeholder="{{ i18n "contactFormNameFieldTextTranslation" |title}}" minlength="2" required="" aria-required="true">
+            </div>
+            <div class="form-group col-md-6">
+              <label class="sr-only" for="cemail">{{i18n "contactFormEmailFieldTextTranslation" | title}}</label>
+              <input type="email" class="form-control" id="cemail" name="email" placeholder="{{i18n "contactFormEmailFieldTextTranslation" | title}}" required="" aria-required="true">
+            </div>
+            <div class="form-group col-12">
+              <label class="sr-only" for="cmessage">{{humanize (i18n "contactFormMessageFieldTextTranslation" | title)}}</label>
+              <textarea class="form-control" id="cmessage" name="message" placeholder="{{humanize (i18n "contactFormMessageFieldTextTranslation" | title)}}" rows="10" required="" aria-required="true"></textarea>
+            </div>
+            <div class="form-group col-12">
+              <button type="submit" class="btn btn-block btn-warning py-2 font-bolder">{{humanize (i18n "contactFormSendButtonTextTranslation")}}</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+{{end}}

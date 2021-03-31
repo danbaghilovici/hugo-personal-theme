@@ -1,16 +1,12 @@
-<div class="container mt-5 p-0">
-  <p>aaa</p>
-<!--  <div class="row">-->
-<!--    {{with .projects}}-->
-<!--    {{range . | first ($.limit)}}-->
-<!--    <div class="col-md-12 col-lg-{{$.cols}} mb-5">-->
-<!--      {{- partial "components/projects/project_item.html" . -}}-->
-<!--    </div>-->
-<!--    {{end}}-->
-<!--    {{else}}-->
-<!--    <div class="col text-center ">-->
-<!--      <p class="text-danger">No projects imported! (yet &#128540;) </p>-->
-<!--    </div>-->
-<!--    {{end}}-->
-<!--  </div>-->
-</div>
+<article class="blog-item">
+    <a href="{{.Permalink}}" class="stretched-link text-white-50">
+        <h2 class="font-bolder text-white">{{.Params.title}}</h2>
+    </a>
+    <div class="content">
+        <p class="text-warning mb-0 text-left">
+            {{humanize (i18n "publishedOnBlogEntryText")}} {{.Date.Format "02/01/2006"}}</p>
+        <p class="text-white">
+            {{print (substr .Plain 0 500) "..."}}
+        </p>
+    </div>
+</article>

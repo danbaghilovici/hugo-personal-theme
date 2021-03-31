@@ -1,15 +1,15 @@
-<div class="container mt-5 p-0">
-<!--    <div class="row">-->
-<!--    {{with .projects}}-->
-<!--        {{range . | first ($.limit)}}-->
-<!--        <div class="col-md-12 col-lg-{{$.cols}} mb-5">-->
-<!--            {{- partial "components/projects/project_item.html" . -}}-->
-<!--        </div>-->
-<!--        {{end}}-->
-<!--    {{else}}-->
-<!--        <div class="col text-center ">-->
-<!--            <p class="text-danger">No projects imported! (yet &#128540;) </p>-->
-<!--        </div>-->
-<!--    {{end}}-->
-<!--    </div>-->
+<div class="container p-0">
+    <div class="row">
+    {{with .projects}}
+        {{range . | first ($.limit)}}
+        <div class="col-md-12 col-lg-{{$.cols}} mb-5">
+            {{- partial "components/projects/project_item.html" . -}}
+        </div>
+        {{end}}
+    {{else}}
+        <div class="col text-center ">
+            <p class="text-danger">No projects imported! (yet &#128540;) </p>
+        </div>
+    {{end}}
+    </div>
 </div>

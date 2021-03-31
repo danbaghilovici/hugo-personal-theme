@@ -12,7 +12,7 @@
     {{ $.Scratch.Set "contactLink" (substr (index . 0).URL 1) }}
 {{end}}
 
-<section class="row pt-5">
+<section class="row">
     <div class="col-md-4 text-center" >
         <img class="img-fluid profile-picture" loading="lazy" src="/imgs/profile.jpg" alt="{{i18n "homeAboutProfilePictureAltText"}}">
     </div>
@@ -38,7 +38,7 @@
     </div>
 
 </section>
-<hr>
+
 <section class="pt-5">
     <p class=" text-warning mb-0 font-light">{{upper (i18n "homeWhatMiniHeaderTextTranslation")}}</p>
     <h1 class="font-bolder">{{humanize (i18n "homeWhatHeaderTextTranslation")}}</h1>
@@ -73,5 +73,11 @@
     {{ partial "pages/portfolio/_list.html" (dict "projects" . "limit" 3 "cols" 4) }}
 </section>
 {{end}}
-{{(.Scratch.Get "blogLink")}}
+{{with ($.Site.GetPage "blog" .Section).Pages}}
+<section class="mt-5">
+    <p class=" text-warning mb-0 font-light">BLOG</p>
+    <h1 class="font-bolder">Posts</h1>
+    {{ partial "pages/blog/_list.html" (dict "posts" . "limit" 3) }}
+</section>
+{{end}}
 {{end}}
