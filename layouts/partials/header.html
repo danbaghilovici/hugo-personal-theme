@@ -15,7 +15,6 @@
             <li class="nav-item {{if eq $item.URL (substr (print "/" $.File.Dir) 0 -1)}} active {{end}}">
             <a class="nav-link font-bolder" href="{{ $item.URL | relLangURL }}">
                 {{ i18n $item.Name |title}}
-<!--                {{$item.Name}}-->
                 <span class="sr-only">(current)</span></a>
             </li>
             {{end}}
