@@ -3,7 +3,11 @@
     {{- partial "head.html" . -}}
     <body >
     {{- partial "header.html" . -}}
+
     <div id="main-wrapper" class="container" style="padding:0 1rem 1rem 1rem">
+        <div class="alert alert-warning" role="alert">
+            Site is still work in progress  &#128517;
+        </div>
         <hr class="bg-success">
         <div id="content" class="py-5">
             {{- block "main" . }}{{- end }}
