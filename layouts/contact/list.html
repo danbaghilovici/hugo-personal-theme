@@ -26,11 +26,11 @@
         <form id="contact-form" class="contact-form col-lg-8 mx-lg-auto" method="post" action="">
           <h2 class="text-center font-bolder mb-3">{{(i18n "contactFormTitleTextTranslation" | title)}}</h2>
           <div class="form-row">
-            <div class="form-group col-md-6">
+            <div class="form-group col ">
               <label class="sr-only" for="cname">{{i18n "contactFormNameFieldTextTranslation" | title}}</label>
               <input type="text" class="form-control" id="cname" name="name" placeholder="{{ i18n "contactFormNameFieldTextTranslation" |title}}" minlength="2" required="" aria-required="true">
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col">
               <label class="sr-only" for="cemail">{{i18n "contactFormEmailFieldTextTranslation" | title}}</label>
               <input type="email" class="form-control" id="cemail" name="email" placeholder="{{i18n "contactFormEmailFieldTextTranslation" | title}}" required="" aria-required="true">
             </div>
