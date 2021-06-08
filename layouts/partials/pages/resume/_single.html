@@ -1,8 +1,8 @@
 <div class="">
-    <div class="row">
+    <div class="row mb-3">
         <div class="col text-center font-boldest">
             <h1 class="font-bolder">{{i18n "resumeHeaderTextTranslation" | title}}</h1>
-            <a class="btn btn-outline-warning btn-lg font-bolder mt-3">{{i18n "resumeDownloadPDFButtonTextTranslation" | upper}}</a>
+            <a class="btn btn-outline-warning btn-lg font-bolder my-3">{{i18n "resumeDownloadPDFButtonTextTranslation" | upper}}</a>
         </div>
     </div>
     {{- partial "components/resume/resume.html" (dict "ctx" . "forPrint" false) -}}

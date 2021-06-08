@@ -1,6 +1,6 @@
 <html>
 {{- partial "head.html" . -}}
-<body>
+<body class="for-print">
 {{- partial "components/resume/resume.html" (dict "ctx" . "forPrint" true) -}}
 </body>
 </html>

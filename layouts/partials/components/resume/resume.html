@@ -103,17 +103,18 @@
                         <h3 class="text-uppercase resume-section-heading mb-4 font-bolder text-warning">{{i18n "resumeWorkSectionSkillsText"|title}}</h3>
                         <div class="item">
                             <h4 class="item-title {{if $.forPrint}} thm-black {{end}}">Technical</h4>
-                            {{range .ctx.Site.Params.ownerSkillsSet}}
-                            {{$s:=""}}
                             <ul class="list-unstyled resume-skills-list">
-                                {{range $i,$item := .libs }}
-                                {{$s:= (print $s " / " .item.title) }}
+                                {{range sort .ctx.Site.Params.ownerSkillsSet "weight" "asc"}}
+                                {{$s:=(print "" .title)}}
+                                    {{range $i,$item := .libs }}
+    <!--                                {{.title}}-->
+                                    {{$s = (print $s " / " $item.title) }}
 
-                                {{end}}
+                                    {{end}}
                                 <li class="mb-2 {{if $.forPrint}} thm-black-75 {{end}}"> {{$s}}</li>
+                                {{end}}
                             </ul>
-                            {{$s}}
-                            {{end}}
+
 
                         </div>
                         <div class="item">
