@@ -46,14 +46,14 @@
     {{i18n "homeWhatDescriptionIntroMainSkillsTextTranslation"}}
     </p>
     <div class="row tools-list">
-        {{range .Site.Params.ownerSkillsSet}}
+        {{range sort .Site.Params.ownerSkillsSet "weight" "asc"}}
         <div class="col-md-4 col-lg-3 mb-3" >
             <ul class="list-group ">
                 <li class="list-group-item active ">
                     <img src="{{.iconClass}}" style="display: inline">
                     <p>{{.title}}</p>
                 </li>
-                {{range .libs}}
+                {{range sort .libs "weight" "asc"}}
                     <li class="list-group-item">
                         <img src="{{.iconClass}}" style="display: inline">
                         {{.title}}
