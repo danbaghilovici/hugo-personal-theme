@@ -18,7 +18,7 @@
     </div>
     <div class="col-md-8">
         <p class="text-warning mb-0 font-light">{{upper (i18n "homeAboutHelloHeading")}} &#128075;</p>
-        <h1 class="font-light">{{i18n "homeAboutImStart" |title}} <span class="font-bolder">{{.Site.Params.ownerFirstName}}</span>,</h1>
+        <h1 class="">{{i18n "homeAboutImStart" |title}} <span class="font-bolder">{{.Site.Params.ownerFirstName}}</span>,</h1>
         <p class="">
             {{i18n "homeAboutShortDescriptionTranslation" . }}
             {{safeHTML (i18n "homeAboutCheckMyBlogTextTranslation" (dict "Count" 1 "blogLink" (.Scratch.Get "blogLink"))) }}
