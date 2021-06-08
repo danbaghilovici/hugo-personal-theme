@@ -8,7 +8,7 @@
             <ul class="navbar-nav">
                 {{ range $i,$item:=.Site.Menus.main }}
                 <li class="nav-item {{if eq $item.URL (substr (print "/" $.File.Dir) 0 -1)}} active {{end}}">
-                <a class="nav-link font-bolder" href="{{ $item.URL | relLangURL }}">
+                <a class="nav-link font-bold" href="{{ $item.URL | relLangURL }}">
                     {{ i18n $item.Name |title}}
 <!--                    <span class="sr-only">(current)</span>-->
                 </a>
@@ -18,20 +18,20 @@
                 {{range .Site.Menus.contact}}
                 <li class="nav-item">
 
-                    <a class="nav-link font-bolder" href="{{.URL|relLangURL}}">
+                    <a class="nav-link font-bold" href="{{.URL|relLangURL}}">
                         {{i18n .Name | title}}
 <!--                        <span class="sr-only">(current)</span>-->
                     </a>
                 </li>
                 {{end}}
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle font-bold" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         More
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         {{range .Site.Menus.more}}
                         <li>
-                            <a class="dropdown-item" href="{{.URL|relLangURL}}">{{i18n .Name |title}}</a>
+                            <a class="dropdown-item font-bold" href="{{.URL|relLangURL}}">{{i18n .Name |title}}</a>
                         </li>
                         {{end}}
                     </ul>
