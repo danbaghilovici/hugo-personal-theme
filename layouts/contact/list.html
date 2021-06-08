@@ -22,29 +22,32 @@
         </li>
 
       </ul>
-      <div class="pt-5">
-        <form id="contact-form" class="contact-form col-lg-8 mx-lg-auto" method="post" action="">
-          <h2 class="text-center font-bolder mb-3">{{(i18n "contactFormTitleTextTranslation" | title)}}</h2>
-          <div class="form-row">
-            <div class="form-group col ">
-              <label class="sr-only" for="cname">{{i18n "contactFormNameFieldTextTranslation" | title}}</label>
-              <input type="text" class="form-control" id="cname" name="name" placeholder="{{ i18n "contactFormNameFieldTextTranslation" |title}}" minlength="2" required="" aria-required="true">
-            </div>
-            <div class="form-group col">
-              <label class="sr-only" for="cemail">{{i18n "contactFormEmailFieldTextTranslation" | title}}</label>
-              <input type="email" class="form-control" id="cemail" name="email" placeholder="{{i18n "contactFormEmailFieldTextTranslation" | title}}" required="" aria-required="true">
-            </div>
-            <div class="form-group col-12">
-              <label class="sr-only" for="cmessage">{{humanize (i18n "contactFormMessageFieldTextTranslation" | title)}}</label>
-              <textarea class="form-control" id="cmessage" name="message" placeholder="{{humanize (i18n "contactFormMessageFieldTextTranslation" | title)}}" rows="10" required="" aria-required="true"></textarea>
-            </div>
-            <div class="form-group col-12">
-              <button type="submit" class="btn btn-block btn-warning py-2 font-bolder">{{humanize (i18n "contactFormSendButtonTextTranslation")}}</button>
-            </div>
-          </div>
-        </form>
-      </div>
 
+
+
+
+    </div>
+    <div class="pt-5">
+      <form id="contact-form" class="contact-form col-lg-8 mx-lg-auto" method="post" action="">
+        <h2 class="text-center font-bolder mb-4">{{(i18n "contactFormTitleTextTranslation" | title)}}</h2>
+        <div class="form-row">
+          <div class="form-group col mb-3">
+            <label class="form-label" for="cname">{{i18n "contactFormNameFieldTextTranslation" | title}}</label>
+            <input type="text" class="form-control" id="cname" name="name" minlength="2" required="" aria-required="true" placeholder="{{ i18n "contactFormNameFieldTextTranslation" |title}}" >
+          </div>
+          <div class="form-group col mb-3">
+            <label class="form-label" for="cemail">{{i18n "contactFormEmailFieldTextTranslation" | title}}</label>
+            <input type="email" class="form-control" id="cemail" name="email" required="" aria-required="true" placeholder="{{i18n "contactFormEmailFieldTextTranslation" | title}}" >
+          </div>
+          <div class="form-group col-12 mb-3">
+            <label class="form-label" for="cmessage">{{humanize (i18n "contactFormMessageFieldTextTranslation" | title)}}</label>
+            <textarea class="form-control" id="cmessage" name="message" rows="10" required="" aria-required="true" placeholder="{{humanize (i18n "contactFormMessageFieldTextTranslation" | title)}}" ></textarea>
+          </div>
+          <div class="form-group col-12 d-grid">
+            <button type="submit" class="btn btn-block my-4 btn-warning font-bolder ">{{humanize (i18n "contactFormSendButtonTextTranslation")}}</button>
+          </div>
+        </div>
+      </form>
     </div>
 
   </div>

@@ -14,7 +14,7 @@
 
 <section class="row">
     <div class="col-md-4 text-center" >
-        <img class="img-fluid profile-picture" loading="lazy" src="/imgs/profile.jpg" alt="{{i18n "homeAboutProfilePictureAltText"}}">
+        <img class="img-fluid profile-picture mx-auto" loading="lazy" src="/imgs/profile.jpg" alt="{{i18n "homeAboutProfilePictureAltText"}}">
     </div>
     <div class="col-md-8">
         <p class="text-warning mb-0 font-light">{{upper (i18n "homeAboutHelloHeading")}} &#128075;</p>
@@ -26,12 +26,12 @@
         </p>
         <p>{{i18n "homeAboutHowMayIHelpTextTranslation" }}&#128521;</p>
         <div class="row">
-            <div class="col-xs-12 col-sm-12 pb-3">
-                <a href="{{(.Scratch.Get "contactLink")}}" class="btn btn-outline-warning font-bolder" >{{ i18n "homeAboutLetsTalkButton" |title}} &#128172;</a>
+            <div class="col-sm-12 col-md-6 pb-4">
+                <a class="btn btn-outline-warning font-bolder d-block" href="{{(.Scratch.Get "contactLink")}}"  >{{ i18n "homeAboutLetsTalkButton" |title}} &#128172;</a>
             </div>
 
-            <div class=" col-xs-12 col-12-auto">
-                <a  class="btn btn-outline-success font-bolder" href="{{(.Scratch.Get "portfolioLink")}}" >{{ i18n "homeAboutExplorePortfolioButton" |title}} &#128214;</a>
+            <div class=" col-sm-12 col-md-6">
+                <a  class="btn btn-outline-success font-bolder d-block" style="word-break: break-word" href="{{(.Scratch.Get "portfolioLink")}}" >{{ i18n "homeAboutExplorePortfolioButton" |title}} &#128214;</a>
             </div>
 
         </div>
