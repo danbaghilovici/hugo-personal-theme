@@ -1,14 +1,14 @@
-<article class="p-5 {{if .forPrint }}bg-white{{else}}bg-dark{{end}}">
+<article class="{{if .forPrint }}p-5 bg-white{{else}}p-5 bg-dark{{end}}">
         <div class="">
-            <div class="row align-items-center pb-3">
-                <div class="col-8">
+            <div class="row align-items-start justify-content-between" >
+                <div class="col-auto p-0 m-0" >
                     <h1 class="mb-0 text-uppercase font-bolder text-warning">{{.ctx.Site.Params.ownerFirstName}}
                         {{.ctx.Site.Params.ownerLastName}}</h1>
                     <div class=" mb-3 mb-md-0">
                         <h4 class="font-light m-0 {{if .forPrint}} thm-black {{end}}">{{ i18n "jobTitleTranslation"|title}}</h4>
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-auto p-0 m-0" >
                     <ul class="list-unstyled mb-0">
                         <li class="mb-2">
                                 <span class="mr-2">
