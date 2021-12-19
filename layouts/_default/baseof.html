@@ -1,20 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{.Site.Language}}">
     {{- partial "head.html" (dict "ctx" . "forPrint" false) -}}
-    <body >
+    <body class="wireframes dark-mode">
     {{- partial "header.html" . -}}
-
-    <div id="main-wrapper" class="container" style="padding:0 1rem 1rem 1rem">
-        <div class="alert alert-danger" role="alert">
-            Site is still work in progress  &#128517;
-        </div>
-        <hr class="bg-success">
-        <div id="content" class="py-5">
-            {{- block "main" . }}{{- end }}
-        </div>
-        <hr class="bg-success">
-        {{- partial "footer.html" . -}}
-    </div>
-
+    {{- block "main" . }}{{- end }}
+    {{- partial "footer.html" . -}}
     </body>
 </html>
