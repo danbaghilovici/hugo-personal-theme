@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{.Site.Language}}">
     {{- partial "head.html" (dict "ctx" . "forPrint" false) -}}
-    <body class="wireframes dark-mode">
+
+    <body class="fabrx wireframes " >
+    {{- partial "util-fab.html" . -}}
     {{- partial "header.html" . -}}
     {{- block "main" . }}{{- end }}
     {{- partial "footer.html" . -}}

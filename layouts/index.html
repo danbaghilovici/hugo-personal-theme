@@ -11,11 +11,11 @@
 {{with .Site.Menus.contact}}
     {{ $.Scratch.Set "contactLink" (substr (index . 0).URL 1) }}
 {{end}}
-<section class="fabrx-hero bg-white pb-5 mt-5">
+<section class="fabrx-hero bg-white py-5 vh-100" >
     <!-- Fabrx Header, Bg White -->
 
     <!-- Container -->
-    <div class="container">
+    <div class="container h-100">
         <div class="row align-items-center">
             <div class="col-lg-6">
                 <div class="hero-caption pb-2 pb-lg-5 pt-4 pt-md-5">
@@ -64,33 +64,33 @@
 
 <!--</section>-->
 
-<section class="pt-5">
-    <p class=" text-warning mb-0 font-light">{{upper (i18n "homeWhatMiniHeaderTextTranslation")}}</p>
-    <h1 class="font-bolder">{{humanize (i18n "homeWhatHeaderTextTranslation")}}</h1>
-    <p>{{i18n "homeWhatDescriptionIntroTextTranslation"}}
-    {{i18n "homeWhatDescriptionIntroMainSkillsTextTranslation"}}
-    </p>
-    <div class="row tools-list">
-        {{range sort .Site.Params.ownerSkillsSet "weight" "asc"}}
-        <div class="col-md-4 col-lg-3 mb-3" >
-            <ul class="list-group ">
-                <li class="list-group-item active ">
-                    <img src="{{.iconClass}}" style="display: inline">
-                    <p>{{.title}}</p>
-                </li>
-                {{range sort .libs "weight" "asc"}}
-                    <li class="list-group-item">
-                        <img src="{{.iconClass}}" style="display: inline">
-                        {{.title}}
-                    </li>
-                {{ end }}
-            </ul>
-        </div>
-        {{end}}
-    </div>
+<!--<section class="pt-5">-->
+<!--    <p class=" text-warning mb-0 font-light">{{upper (i18n "homeWhatMiniHeaderTextTranslation")}}</p>-->
+<!--    <h1 class="font-bolder">{{humanize (i18n "homeWhatHeaderTextTranslation")}}</h1>-->
+<!--    <p>{{i18n "homeWhatDescriptionIntroTextTranslation"}}-->
+<!--    {{i18n "homeWhatDescriptionIntroMainSkillsTextTranslation"}}-->
+<!--    </p>-->
+<!--    <div class="row tools-list">-->
+<!--        {{range sort .Site.Params.ownerSkillsSet "weight" "asc"}}-->
+<!--        <div class="col-md-4 col-lg-3 mb-3" >-->
+<!--            <ul class="list-group ">-->
+<!--                <li class="list-group-item active ">-->
+<!--                    <img src="{{.iconClass}}" style="display: inline">-->
+<!--                    <p>{{.title}}</p>-->
+<!--                </li>-->
+<!--                {{range sort .libs "weight" "asc"}}-->
+<!--                    <li class="list-group-item">-->
+<!--                        <img src="{{.iconClass}}" style="display: inline">-->
+<!--                        {{.title}}-->
+<!--                    </li>-->
+<!--                {{ end }}-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--        {{end}}-->
+<!--    </div>-->
 
 
-</section>
+<!--</section>-->
 {{with ($.Site.GetPage (.Scratch.Get "portfolioLink") .Section).Pages}}
 <section class="mt-5">
     <p class="text-warning mb-0 font-light">{{i18n "homePortfolioMiniHeaderTextTranslation" | upper}}</p>
