@@ -1,15 +1,15 @@
 <header class="fabrx-header header-center bg-white sticky-lg-top">
     <div class="container">
         <nav class="navbar navbar-expand-lg has-header-inner">
-            <a class="navbar-brand" href="#0">
-                <img class="h-auto img-thumbnail-light" src="/imgs/profile.jpg" alt="asd" style="width: 50px;border: solid 1px red">
-
+            <a class="navbar-brand" >
+                <div class="fabrx-avatar  md"><img src="/imgs/profile.jpg" alt="{{i18n "avatarAltTranslation" }}"></div>
             </a>
-<!--            <h4 class="mb-0">DB</h4>-->
+
             <div class="fabrx-header-links d-flex ms-auto order-0 order-lg-2" >
                 {{range .Site.Params.ownerSocialLinks}}
                 <!--                    <a class="nav-link p-0 text-success social-link" target="_blank" rel="noopener noreferrer" href="{{.link}}">{{safeHTML .class}}</a>-->
-                <a href="{{.link}}" class="ms-4 ms-md-4">
+                <a href="{{.link}}" class="ms-4 ms-md-4"
+                   data-bs-toggle="tooltip" data-bs-placement="bottom" title="{{ (i18n .tooltip)}}">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                         {{safeHTML .path}}
                     </svg>
@@ -39,7 +39,7 @@
                     </li>
                     {{end}}
 
-<!--                    more -->
+<!--&lt;!&ndash;                    more &ndash;&gt;-->
 <!--                    {{ range $i,$item:=.Site.Menus.more }}-->
 <!--                    <li class="nav-item {{if eq $item.URL (substr (print "/" $.File.Dir) 0 -1)}} active {{end}}">-->
 <!--                    <a class="nav-link font-weight-bold " href="{{ $item.URL | relLangURL }}">-->
@@ -56,7 +56,7 @@
                     {{end}}
                     <li class="nav-item dropdown">
                         <a class="nav-link font-weight-bold" href="#" role="button" id="dropdownMenuLink1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span>MAI MULT</span>
+                            <span>{{upper (i18n "morePagesTranslation")}}</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="8" height="4.444" viewBox="0 0 8 4.444">
                                 <path data-name="Icon Color" d="M3.686.13a.444.444,0,0,1,.672.579l-.043.05L1.073,4,4.314,7.241a.445.445,0,0,1,.043.579l-.043.05a.445.445,0,0,1-.579.043l-.05-.043L.13,4.314a.445.445,0,0,1-.043-.579l.043-.05Z" transform="translate(0 4.444) rotate(-90)" fill="#212121"/>
                             </svg>
@@ -68,11 +68,6 @@
                         </ul>
                     </li>
                 </ul>
-<!--                <div class="fabrx-header-links ms-0 ms-lg-5 dropdown" style="display: flex;justify-content: center">-->
-<!--                    {{- partial "translations.html" . -}}-->
-<!--                    <a href="#0" class="btn btn-sm shadow-none  ms-2 ms-md-4">{{- partial "dark-mode-switch.html" . -}}</a>-->
-<!--                </div>-->
-
             </div>
         </nav>
     </div>
