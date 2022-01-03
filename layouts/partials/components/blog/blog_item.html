@@ -1,12 +1,32 @@
-<article class="blog-item" style="position: relative">
-    <a href="{{.Permalink}}" class="stretched-link text-white-50">
-        <h2 class="font-bolder text-white">{{.Params.title}}</h2>
-    </a>
-    <div class="content">
-        <p class="text-warning mb-0 text-left">
-            {{humanize (i18n "publishedOnBlogEntryText")}} {{.Date.Format "02/01/2006"}}</p>
-        <p class="text-white">
-            {{print (substr .Plain 0 500) "..."}}
-        </p>
+
+<div class="col-lg-4 col-md-6 my-3">
+<div class="card shadow-40 border border-gray-200">
+    <img class="card-img-top" src="{{.Params.headerImage.thumb}}" data-src="{{.Params.headerImage.thumb}}" alt="Card Image">
+    <div class="card-body px-lg-4 pb-4">
+        <small class="card-subtitle mb-2 text-muted">{{.Date.Format "02/01/2006"}}</small>
+        <h6 class="card-title"><a href="{{.Permalink}}">{{.Params.title}}</a></h6>
+        <div class="clearfix pt-md-5">
+            <div class="float-start">
+                <a href="#0">
+                    <div class="fabrx-avatar sm"><img src="/imgs/profile.jpg" alt="Avatar"></div>
+                    <span class="avatar-user">Bruce Lee</span>
+                </a>
+            </div>
+            <div class="float-end">
+                <div class="dropdown">
+                    <a href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="Action19">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                            <path data-name="Icon Color" d="M9.334,1.166A1.167,1.167,0,1,1,10.5,2.333,1.168,1.168,0,0,1,9.334,1.166Zm1,0A.167.167,0,1,0,10.5,1,.167.167,0,0,0,10.334,1.166Zm-5.667,0A1.167,1.167,0,1,1,5.833,2.333,1.168,1.168,0,0,1,4.667,1.166Zm1,0A.166.166,0,1,0,5.833,1,.167.167,0,0,0,5.667,1.166ZM0,1.166A1.167,1.167,0,1,1,1.166,2.333,1.168,1.168,0,0,1,0,1.166Zm1,0A.167.167,0,1,0,1.166,1,.167.167,0,0,0,1,1.166Z" transform="translate(9.167 2) rotate(90)" fill="#212121"></path>
+                        </svg>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="Action19">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</article>
+</div>
+</div>

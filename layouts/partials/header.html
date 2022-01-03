@@ -2,19 +2,17 @@
     <div class="container">
         <nav class="navbar navbar-expand-lg has-header-inner">
             <a class="navbar-brand" >
-                <div class="fabrx-avatar  md"><img src="/imgs/profile.jpg" alt="{{i18n "avatarAltTranslation" }}"></div>
+                <div class="fabrx-avatar md"><img src="/imgs/profile.jpg" alt="{{i18n "avatarAltTranslation" }}"></div>
             </a>
 
             <div class="fabrx-header-links d-flex ms-auto order-0 order-lg-2" >
                 {{range .Site.Params.ownerSocialLinks}}
-                <!--                    <a class="nav-link p-0 text-success social-link" target="_blank" rel="noopener noreferrer" href="{{.link}}">{{safeHTML .class}}</a>-->
                 <a href="{{.link}}" class="ms-4 ms-md-4"
-                   data-bs-toggle="tooltip" data-bs-placement="bottom" title="{{ (i18n .tooltip)}}">
+                   data-bs-toggle="tooltip" data-bs-placement="bottom" title="{{ (i18n .tooltip)}}" data-animation="true">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                         {{safeHTML .path}}
                     </svg>
                 </a>
-
                 {{end}}
 
             </div>
@@ -38,15 +36,6 @@
                     </a>
                     </li>
                     {{end}}
-
-<!--&lt;!&ndash;                    more &ndash;&gt;-->
-<!--                    {{ range $i,$item:=.Site.Menus.more }}-->
-<!--                    <li class="nav-item {{if eq $item.URL (substr (print "/" $.File.Dir) 0 -1)}} active {{end}}">-->
-<!--                    <a class="nav-link font-weight-bold " href="{{ $item.URL | relLangURL }}">-->
-<!--                        {{ upper (i18n $item.Name) }}-->
-<!--                    </a>-->
-<!--                    </li>-->
-<!--                    {{end}}-->
                     {{range .Site.Menus.contact}}
                     <li class="nav-item">
                         <a class="nav-link font-weight-bold" href="{{.URL|relLangURL}}">

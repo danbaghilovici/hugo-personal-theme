@@ -1,11 +1,28 @@
 <!-- must receive an Project object-->
 <!--https://getbootstrap.com/docs/4.3/utilities/stretched-link/-->
-        <div class="card project-item">
-            <img class="card-img-top img-fluid mx-auto" loading="lazy" src="{{ .Params.media }}"
-                 alt="{{.Params.Title}} presentation media">
-            <div class="card-body d-flex flex-column">
-                <h5 class="card-title font-bolder">{{.Params.Title}}</h5>
-                <p class="card-text">{{print (substr .Plain 0 300) "..."}}</p>
-                <a href="{{.Permalink}}" class=" btn btn-block btn-outline-warning font-bolder stretched-link mt-auto">Find more about this project</a>
-            </div>
+<!--        <div class="card project-item">-->
+<!--            <img class="card-img-top img-fluid mx-auto" loading="lazy" src="{{ .Params.media }}"-->
+<!--                 alt="{{.Params.Title}} presentation media">-->
+<!--            <div class="card-body d-flex flex-column">-->
+<!--                <h5 class="card-title font-bolder">{{.Params.Title}}</h5>-->
+<!--                <p class="card-text">{{print (substr .Plain 0 300) "..."}}</p>-->
+<!--                <a href="{{.Permalink}}" class=" btn btn-block btn-outline-warning font-bolder stretched-link mt-auto">Find more about this project</a>-->
+<!--            </div>-->
+<!--        </div>-->
+<div class="col-lg-4 col-md-6 my-3">
+<div class="card card-sm card-transparent rounded-0 border-0">
+    <a href="#0"><img class="card-img-top rounded-0" src="{{ .Params.media }}" data-src="{{ .Params.media }}" alt="{{.Params.Title}} presentation media"></a>
+    <div class="card-body">
+        <h6 class="card-title mb-2">{{.Params.Title}}</h6>
+        <p class="mb-xl-4 pb-xl-3">{{print (substr .Plain 0 300) "..."}}</p>
+        <div class="clearfix">
+            <a href="{{.Permalink}}" class="btn btn-link">
+                <span class="btn-text">Link</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="ms-1" width="16" height="16" viewBox="0 0 16 16">
+                    <path data-name="Icon Color" d="M6.813,6.187a.5.5,0,0,1-.048-.651l.048-.056L8.627,3.667H.5a.5.5,0,0,1-.068-1l.068,0H8.626L6.813.854A.5.5,0,0,1,7.464.1L7.52.147,10.177,2.8a.5.5,0,0,1,.052.057l0,0,0,0,0,0,0,0,0,.005,0,0,0,.005,0,0,0,0,0,.006h0l.016.029h0l0,.01h0l0,.01h0l0,.01h0a.5.5,0,0,1-.054.5l0,0-.006.008-.005.006h0a.5.5,0,0,1-.041.044L7.52,6.187a.5.5,0,0,1-.707,0Z" transform="translate(2.833 4.833)" fill="#0d6efd"></path>
+                </svg>
+            </a>
         </div>
+    </div>
+</div>
+</div>

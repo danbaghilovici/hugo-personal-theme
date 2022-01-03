@@ -1,13 +1,29 @@
-<div class="container  p-0">
-    <div class="row">
+<!--<div class="container  p-0">-->
+<!--    <div class="row">-->
+<!--        {{with .posts}}-->
+<!--        {{range . | first $.limit}}-->
+<!--        <div class="col-lg-4 col-md-6 my-3">-->
+<!--            {{partial "components/blog/blog_item.html" . }}-->
+<!--        </div>-->
+<!--        {{end}}-->
+<!--        {{else}}-->
+<!--        <p>no imported yet</p>-->
+<!--        {{end}}-->
+<!--    </div>-->
+<!--</div>-->
+<section class="fabrx-section bg-white pt-4">
+    <div class="container">
         {{with .posts}}
-        {{range . | first $.limit}}
-        <div class="col-12">
-            {{partial "components/blog/blog_item.html" . }}
+        <h2>My latest blog posts</h2>
+        <div class="row">
+            {{range . | first $.limit}}
+                {{partial "components/blog/blog_item.html" . }}
+            {{end}}
         </div>
-        {{end}}
+
         {{else}}
-        <p>no imported yet</p>
+        ceva
         {{end}}
     </div>
-</div>
+</section>
+

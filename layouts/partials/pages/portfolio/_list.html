@@ -1,15 +1,28 @@
-<div class="container p-0">
-    <div class="row">
-    {{with .projects}}
-        {{range . | first ($.limit)}}
-        <div class="col-md-12 col-lg-{{$.cols}} mb-5">
-            {{- partial "components/projects/project_item.html" . -}}
+<!--<div class="container ">-->
+<!--    <div class="row">-->
+<!--    {{with .projects}}-->
+<!--        {{range . | first ($.limit)}}-->
+<!--            {{- partial "components/projects/project_item.html" . -}}-->
+<!--        {{end}}-->
+<!--    {{else}}-->
+<!--        <div class="col text-center ">-->
+<!--            <p class="text-danger">No projects imported! (yet &#128540;) </p>-->
+<!--        </div>-->
+<!--    {{end}}-->
+<!--    </div>-->
+<!--</div>-->
+
+<section class="fabrx-section bg-white pt-4 min-vh-100">
+
+    <div class="container">
+        {{with .projects}}
+        <h2 class="font-bolder">{{ humanize (i18n "homePortfolioHeaderTextTranslation")}}</h2>
+        <div class="row">
+            {{range . | first ($.limit)}}
+                {{- partial "components/projects/project_item.html" . -}}
+            {{end}}
         </div>
         {{end}}
-    {{else}}
-        <div class="col text-center ">
-            <p class="text-danger">No projects imported! (yet &#128540;) </p>
-        </div>
-    {{end}}
     </div>
-</div>
+</section>
+

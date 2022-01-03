@@ -1,68 +1,46 @@
 {{define "main"}}
 {{$scratch := newScratch}}
 {{with .Site.Menus.main}}
-    {{ $.Scratch.Set "aboutLink" (substr (index . 0).URL 1) }}
-    {{ $.Scratch.Set "portfolioLink" (substr (index . 1).URL 1) }}
+{{ $.Scratch.Set "aboutLink" (substr (index . 0).URL 1) }}
+{{ $.Scratch.Set "portfolioLink" (substr (index . 1).URL 1) }}
 {{end}}
 {{with .Site.Menus.more}}
-    {{ $.Scratch.Set "blogLink" (substr (index . 0).URL 1) }}
-    {{ $.Scratch.Set "resumeLink" (substr (index . 1).URL 1) }}
+{{ $.Scratch.Set "blogLink" (substr (index . 0).URL 1) }}
+{{ $.Scratch.Set "resumeLink" (substr (index . 1).URL 1) }}
 {{end}}
 {{with .Site.Menus.contact}}
-    {{ $.Scratch.Set "contactLink" (substr (index . 0).URL 1) }}
+{{ $.Scratch.Set "contactLink" (substr (index . 0).URL 1) }}
 {{end}}
-<section class="fabrx-hero bg-white py-5 vh-100" >
-    <!-- Fabrx Header, Bg White -->
-
-    <!-- Container -->
-    <div class="container h-100">
-        <div class="row align-items-center">
-            <div class="col-lg-6">
+<section class="fabrx-hero bg-white ">
+    <div class="container ">
+        <div class="row align-items-center ">
+            <div class="col-lg-7">
                 <div class="hero-caption pb-2 pb-lg-5 pt-4 pt-md-5">
-                    <h2 class="font-weight-bold">Headline in action rules</h2>
-                    <p class="lead text-muted pe-5">Realm of the galaxies across the centuries the carbon in our apple pies vanquish the impossible another world venture.</p>
-                    <div class="pt-2">
-                        <a href="#0" class="btn btn-xl btn-primary mb-3">Button</a>
-                        <a href="#0" class="btn btn-xl btn-outline-primary ms-0 ms-sm-3 mb-3">Button</a>
+                    <h2 class="font-weight-bold ">
+                        <span class="display-4">{{humanize (i18n "homeAboutHelloHeading")}} 👋,</span>
+                        <br>
+                        <span class="display-4"> {{i18n "homeAboutImStart"}}</span>
+                        {{.Site.Params.ownerFirstName}}
+                    </h2>
+                    <p class="lead text-muted ">
+                        <span class="display-4 d-block ">{{i18n "homeAboutShortDescriptionTranslation"}}</span>
+                        <br class="d-block">
+                        {{i18n "homeAboutHowMayIHelpTextTranslation"}}
+                    </p>
+                    <div class="d-grid pt-2 gap-2">
+                        <a href="{{$.Scratch.Get "contactLink"}}" class="btn btn-xl btn-primary btn-block mb-3">{{ i18n "homeAboutLetsTalkButton" | title}}</a>
+                        <a href="{{$.Scratch.Get "portfolioLink"}}" class="btn btn-xl btn-outline-secondary ">{{i18n "homeAboutExplorePortfolioButton" | title}}</a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <div class="text-start text-lg-end pb-2 pb-md-5 pt-4 pt-md-5 mt-0 mt-lg-5">
-                    <img src="../assets/images/vectors/vector-19.svg" data-src="../assets/images/vectors/vector-38.svg" alt="Vector" class="rounded-12 w-100">
+            <div class="col-lg-5">
+                <div class="text-center text-lg-end pb-2 pb-md-5 pt-4 pt-md-5 mt-0 mt-lg-5">
+                    <img src="/imgs/profile.jpg" alt="Vector" class="rounded-circle w-50">
                 </div>
             </div>
         </div>
     </div>
 </section>
-
-
-<!--<section class="row">-->
-<!--    <div class="col-md-4 text-center" >-->
-<!--        <img class="img-fluid profile-picture mx-auto" loading="lazy" src="/imgs/profile.jpg" alt="{{i18n "homeAboutProfilePictureAltText"}}">-->
-<!--    </div>-->
-<!--    <div class="col-md-8">-->
-<!--        <p class="text-warning mb-0 font-light">{{upper (i18n "homeAboutHelloHeading")}} &#128075;</p>-->
-<!--        <h1 class="display-3">{{i18n "homeAboutImStart" |title}} <span class="font-bolder">{{.Site.Params.ownerFirstName}}</span>,</h1>-->
-<!--        <p class="">-->
-<!--            {{i18n "homeAboutShortDescriptionTranslation" . }}-->
-<!--            {{safeHTML (i18n "homeAboutCheckMyBlogTextTranslation" (dict "Count" 1 "blogLink" (.Scratch.Get "blogLink"))) }}-->
-<!--            {{safeHTML (i18n "homeAboutContributingTranslation" (dict "Count" 1 "portfolioLink" (.Scratch.Get "portfolioLink")))}}-->
-<!--        </p>-->
-<!--        <p>{{i18n "homeAboutHowMayIHelpTextTranslation" }}&#128521;</p>-->
-<!--        <div class="row">-->
-<!--            <div class="col-sm-12 col-md-6 pb-4">-->
-<!--                <a class="btn btn-outline-warning font-bolder d-block" href="{{(.Scratch.Get "contactLink")}}"  >{{ i18n "homeAboutLetsTalkButton" |title}} &#128172;</a>-->
-<!--            </div>-->
-
-<!--            <div class=" col-sm-12 col-md-6">-->
-<!--                <a  class="btn btn-outline-success font-bolder d-block" style="word-break: break-word" href="{{(.Scratch.Get "portfolioLink")}}" >{{ i18n "homeAboutExplorePortfolioButton" |title}} &#128214;</a>-->
-<!--            </div>-->
-
-<!--        </div>-->
-<!--    </div>-->
-
-<!--</section>-->
 
 <!--<section class="pt-5">-->
 <!--    <p class=" text-warning mb-0 font-light">{{upper (i18n "homeWhatMiniHeaderTextTranslation")}}</p>-->
@@ -88,74 +66,12 @@
 <!--        </div>-->
 <!--        {{end}}-->
 <!--    </div>-->
-
-
 <!--</section>-->
-{{with ($.Site.GetPage (.Scratch.Get "portfolioLink") .Section).Pages}}
-<section class="mt-5">
-    <p class="text-warning mb-0 font-light">{{i18n "homePortfolioMiniHeaderTextTranslation" | upper}}</p>
-    <h1 class="font-bolder">{{ humanize (i18n "homePortfolioHeaderTextTranslation")}}</h1>
-    {{ partial "pages/portfolio/_list.html" (dict "projects" . "limit" 3 "cols" 4) }}
-</section>
+{{with (($.Site.GetPage (.Scratch.Get "portfolioLink") .Section).Pages)}}
+{{ partial "pages/portfolio/_list.html" (dict "projects" . "limit" 3) }}
 {{end}}
-<section class="fabrx-section bg-white mt-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-md-6 my-3">
-                <div class="card">
-                    <a href="#0" class="badge badge-primary badge-absolute circle">
-                        <svg data-name="Icon/Star Fill" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path data-name="Icon Color" d="M6.474,1.054l.036.037.036-.035A3.834,3.834,0,0,1,9.662.046l.164.025a3.833,3.833,0,0,1,2.034,6.512l-.03.025L6.861,11.53a.5.5,0,0,1-.648.048l-.056-.048-5-4.949A3.833,3.833,0,0,1,6.474,1.054Z" transform="translate(1.491 2.826)" fill="#fff"/></svg>
-                    </a>
-                    <img class="card-img-top rounded-12" src="../assets/images/placeholders/placeholder-29.jpg" data-src="../assets/images/placeholders/placeholder-41.png" alt="Card Image">
-                    <div class="card-img-overlay bottom">
-                        <div class="clearfix pb-3">
-                            <a href="#0" class="fabrx-avatar sm"><img src="../assets/images/avatars/avatar-1.png" alt="Avatar"></a>
-                            <span class="avatar-user text-gray-800">Bruce Lee</span>
-                        </div>
-                        <h6 class="card-title mb-0"><a href="#0">Hidden universe revealed in stunning first images from German telescope</a></h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 my-3">
-                <div class="card">
-                    <a href="#0" class="badge badge-primary badge-absolute circle">
-                        <svg data-name="Icon/Star Fill" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path data-name="Icon Color" d="M6.474,1.054l.036.037.036-.035A3.834,3.834,0,0,1,9.662.046l.164.025a3.833,3.833,0,0,1,2.034,6.512l-.03.025L6.861,11.53a.5.5,0,0,1-.648.048l-.056-.048-5-4.949A3.833,3.833,0,0,1,6.474,1.054Z" transform="translate(1.491 2.826)" fill="#fff"/></svg>
-                    </a>
-                    <img class="card-img-top rounded-12" src="../assets/images/placeholders/placeholder-29.jpg" data-src="../assets/images/placeholders/placeholder-41.png" alt="Card Image">
-                    <div class="card-img-overlay bottom">
-                        <div class="clearfix pb-3">
-                            <a href="#0" class="fabrx-avatar sm"><img src="../assets/images/avatars/avatar-1.png" alt="Avatar"></a>
-                            <span class="avatar-user text-gray-800">Bruce Lee</span>
-                        </div>
-                        <h6 class="card-title mb-0"><a href="#0">Hidden universe revealed in stunning first images from German telescope</a></h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-12 my-3">
-                <div class="card">
-                    <a href="#0" class="badge badge-primary badge-absolute circle">
-                        <svg data-name="Icon/Star Fill" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path data-name="Icon Color" d="M6.474,1.054l.036.037.036-.035A3.834,3.834,0,0,1,9.662.046l.164.025a3.833,3.833,0,0,1,2.034,6.512l-.03.025L6.861,11.53a.5.5,0,0,1-.648.048l-.056-.048-5-4.949A3.833,3.833,0,0,1,6.474,1.054Z" transform="translate(1.491 2.826)" fill="#fff"/></svg>
-                    </a>
-                    <img class="card-img-top rounded-12" src="../assets/images/placeholders/placeholder-29.jpg" data-src="../assets/images/placeholders/placeholder-41.png" alt="Card Image">
-                    <div class="card-img-overlay bottom">
-                        <div class="clearfix pb-3">
-                            <a href="#0" class="fabrx-avatar sm"><img src="../assets/images/avatars/avatar-1.png" alt="Avatar"></a>
-                            <span class="avatar-user text-gray-800">Bruce Lee</span>
-                        </div>
-                        <h6 class="card-title mb-0"><a href="#0">Hidden universe revealed in stunning first images from German telescope</a></h6>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-{{with ($.Site.GetPage "blog" .Section).Pages}}
-<section class="mt-5">
-    <p class=" text-warning mb-0 font-light">BLOG</p>
-    <h1 class="font-bolder">Posts</h1>
-    {{ partial "pages/blog/_list.html" (dict "posts" . "limit" 3) }}
-</section>
+{{with (($.Site.GetPage "blog" .Section).Pages)}}
+{{ partial "pages/blog/_list.html" (dict "posts" . "limit" 3) }}
 {{end}}
-
 {{end}}
 
