@@ -1,6 +1,3 @@
-[submodule "modules/bootstrap"]
-	path = modules/bootstrap
-	url = https://github.com/dntzbgh/bootstrap.git
 [submodule "modules/custom_bootstrap"]
 	path = modules/custom_bootstrap
 	url = https://github.com/dntzbgh/custom_bootstrap.git
