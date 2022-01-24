@@ -2,14 +2,14 @@
 <html lang="{{.Site.Language}}">
     {{- partial "head.html" (dict "ctx" . "forPrint" false) -}}
 
-    <body class="fabrx wireframes " >
-    {{- partial "util-fab.html" . -}}
+    <body class="bx--body " >
     {{- partial "header.html" . -}}
-    <div class="p-0 m-0 min-vh-100">
-        {{- block "main" . }}{{- end }}
 
+    <div class="bx--content" style="min-height: 100vh">
+        {{- block "main" . }}{{- end }}
     </div>
 
     {{- partial "footer.html" . -}}
     </body>
+
 </html>

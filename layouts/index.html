@@ -1,77 +1,84 @@
 {{define "main"}}
-{{$scratch := newScratch}}
-{{with .Site.Menus.main}}
-{{ $.Scratch.Set "aboutLink" (substr (index . 0).URL 1) }}
-{{ $.Scratch.Set "portfolioLink" (substr (index . 1).URL 1) }}
-{{end}}
-{{with .Site.Menus.more}}
-{{ $.Scratch.Set "blogLink" (substr (index . 0).URL 1) }}
-{{ $.Scratch.Set "resumeLink" (substr (index . 1).URL 1) }}
-{{end}}
-{{with .Site.Menus.contact}}
-{{ $.Scratch.Set "contactLink" (substr (index . 0).URL 1) }}
-{{end}}
-<section class="fabrx-hero bg-white ">
-    <div class="container ">
-        <div class="row align-items-center ">
-            <div class="col-lg-7">
-                <div class="hero-caption pb-2 pb-lg-5 pt-4 pt-md-5">
-                    <h2 class="font-weight-bold ">
-                        <span class="display-4">{{humanize (i18n "homeAboutHelloHeading")}} 👋,</span>
-                        <br>
-                        <span class="display-4"> {{i18n "homeAboutImStart"}}</span>
-                        {{.Site.Params.ownerFirstName}}
-                    </h2>
-                    <p class="lead text-muted ">
-                        <span class="display-4 d-block ">{{i18n "homeAboutShortDescriptionTranslation"}}</span>
-                        <br class="d-block">
-                        {{i18n "homeAboutHowMayIHelpTextTranslation"}}
-                    </p>
-                    <div class="d-grid pt-2 gap-2">
-                        <a href="{{$.Scratch.Get "contactLink"}}" class="btn btn-xl btn-primary btn-block mb-3">{{ i18n "homeAboutLetsTalkButton" | title}}</a>
-                        <a href="{{$.Scratch.Get "portfolioLink"}}" class="btn btn-xl btn-outline-secondary ">{{i18n "homeAboutExplorePortfolioButton" | title}}</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-5">
-                <div class="text-center text-lg-end pb-2 pb-md-5 pt-4 pt-md-5 mt-0 mt-lg-5">
-                    <img src="/imgs/profile.jpg" alt="Vector" class="rounded-circle w-50">
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<!--<div class="bx&#45;&#45;grid&#45;&#45;full-width">-->
+<!--    <div class="bx&#45;&#45;row">-->
+<!--        <div class="bx&#45;&#45;col">-->
 
-<!--<section class="pt-5">-->
-<!--    <p class=" text-warning mb-0 font-light">{{upper (i18n "homeWhatMiniHeaderTextTranslation")}}</p>-->
-<!--    <h1 class="font-bolder">{{humanize (i18n "homeWhatHeaderTextTranslation")}}</h1>-->
-<!--    <p>{{i18n "homeWhatDescriptionIntroTextTranslation"}}-->
-<!--    {{i18n "homeWhatDescriptionIntroMainSkillsTextTranslation"}}-->
-<!--    </p>-->
-<!--    <div class="row tools-list">-->
-<!--        {{range sort .Site.Params.ownerSkillsSet "weight" "asc"}}-->
-<!--        <div class="col-md-4 col-lg-3 mb-3" >-->
-<!--            <ul class="list-group ">-->
-<!--                <li class="list-group-item active ">-->
-<!--                    <img src="{{.iconClass}}" style="display: inline">-->
-<!--                    <p>{{.title}}</p>-->
-<!--                </li>-->
-<!--                {{range sort .libs "weight" "asc"}}-->
-<!--                    <li class="list-group-item">-->
-<!--                        <img src="{{.iconClass}}" style="display: inline">-->
-<!--                        {{.title}}-->
-<!--                    </li>-->
-<!--                {{ end }}-->
-<!--            </ul>-->
+<!--            <div class="bx&#45;&#45;grid&#45;&#45;full-width">-->
+<!--                <div class="bx&#45;&#45;row">-->
+<!--                    <div class="bx&#45;&#45;col-lg-3">-->
+<!--                        <a data-tile="clickable" class="bx&#45;&#45;tile bx&#45;&#45;tile&#45;&#45;clickable" tabindex="0" style="padding: 0">-->
+<!--                            <img src="https://images.unsplash.com/photo-1642833465562-f81525657851?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"-->
+<!--                                 style="width: 100%" height="auto">-->
+<!--                            <div class="bx&#45;&#45;grid" style="padding: 1rem;">-->
+<!--                                <div class="bx&#45;&#45;row">-->
+<!--                                    <div class="bx&#45;&#45;col">-->
+<!--                                        <h6 style="color: grey">Industry</h6>-->
+<!--                                        <h3 style="padding-bottom: 5rem">Intro to carbon desing system</h3>-->
+<!--                                        <h5>Book a consultation -></h5>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                    <div class="bx&#45;&#45;col-lg-3">-->
+<!--                        <a data-tile="clickable" class="bx&#45;&#45;tile bx&#45;&#45;tile&#45;&#45;clickable " tabindex="0" style="padding: 0">-->
+<!--                            <img src="https://images.unsplash.com/photo-1642833465562-f81525657851?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"-->
+<!--                                 style="width: 100%" height="auto">-->
+<!--                            <div class="bx&#45;&#45;grid" style="padding: 1rem;">-->
+<!--                                <div class="bx&#45;&#45;row">-->
+<!--                                    <div class="bx&#45;&#45;col">-->
+<!--                                        <h6 style="color: grey">Industry</h6>-->
+<!--                                        <h3 style="padding-bottom: 5rem">Intro to carbon desing system</h3>-->
+<!--                                        <h5>Book a consultation -></h5>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--            </div>-->
+
 <!--        </div>-->
-<!--        {{end}}-->
 <!--    </div>-->
-<!--</section>-->
-{{with (($.Site.GetPage (.Scratch.Get "portfolioLink") .Section).Pages)}}
-{{ partial "pages/portfolio/_list.html" (dict "projects" . "limit" 3) }}
-{{end}}
-{{with (($.Site.GetPage "blog" .Section).Pages)}}
-{{ partial "pages/blog/_list.html" (dict "posts" . "limit" 3) }}
-{{end}}
+<!--</div>-->
+<!--{{range where $.Site.Pages "Type" "page"}}-->
+<!--<p>{{.IsPage}} {{.Permalink}} {{.Type}} {{.Params.displayName}}</p>-->
+<!--{{end}}-->
+<!--<br>-->
+<!--{{range $.Site.Sections }}-->
+<!--<p> {{.IsPage}} {{.Permalink}} {{.Type}}</p>-->
+<!--{{end}}-->
+<!--<br>-->
+
+<!--{{range union (where $.Site.Pages "Type" "page") $.Site.Sections}}-->
+<!--<p>{{.Permalink}}</p>-->
+<!--{{end}}-->
+
+<!--{{ range $i,$item:=.Site.Menus.main }}-->
+<!--<li class="nav-item ">-->
+<!--<a class="nav-link font-weight-bold " href="{{ $item.URL | relLangURL }}">-->
+<!--    {{ upper (i18n $item.Name) }}-->
+<!--    {{if eq $item.URL (substr (print "/" $.File.Dir) 0 -1)}} active {{end}}-->
+<!--</a>-->
+<!--</li>-->
+<!--{{end}}-->
+
+{{ $currentPage := . }}
+{{ range .Site.Menus.main }}
+
+{{ $menu_item_url := .URL | relLangURL }}
+{{ $page_url:= $currentPage.RelPermalink | relLangURL }}
+
+{{ if eq $menu_item_url $page_url }}
+<p>{{$menu_item_url}}</p>
+{{ end }}
+
+{{ end }}
+
 {{end}}
 

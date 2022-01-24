@@ -1,63 +1,209 @@
-<header class="fabrx-header header-center bg-white sticky-lg-top">
-    <div class="container">
-        <nav class="navbar navbar-expand-lg has-header-inner">
-            <a class="navbar-brand" >
-                <div class="fabrx-avatar md"><img src="/imgs/profile.jpg" alt="{{i18n "avatarAltTranslation" }}"></div>
-            </a>
+<header class="bx--header" role="banner" aria-label="IBM Platform Name" data-header>
+    <a class="bx--skip-to-content" href="#main-content" tabindex="0">Skip to main content</a>
+    <button class="bx--header__menu-trigger bx--header__action" aria-label="Open menu" title="Open menu"
+            data-navigation-menu-panel-label-expand="Open menu" data-navigation-menu-panel-label-collapse="Close menu"
+            data-navigation-menu-target="#navigation-menu-m6ibyfeacg">
+        <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;"
+             xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="bx--navigation-menu-panel-collapse-icon"
+             width="20" height="20" viewBox="0 0 32 32">
+            <path d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z"></path>
+        </svg>
+        <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;"
+             xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="bx--navigation-menu-panel-expand-icon"
+             width="20" height="20" viewBox="0 0 20 20">
+            <path d="M2 14.8H18V16H2zM2 11.2H18V12.399999999999999H2zM2 7.6H18V8.799999999999999H2zM2 4H18V5.2H2z"></path>
+        </svg>
+    </button>
+    <a class="bx--header__name" href="/" title="DB" >
+        <img src="/imgs/profile.jpg" width="24px" style="border-radius: 50%;margin-right: 1rem">
+        DB
+    </a>
 
-            <div class="fabrx-header-links d-flex ms-auto order-0 order-lg-2" >
-                {{range .Site.Params.ownerSocialLinks}}
-                <a href="{{.link}}" class="ms-4 ms-md-4"
-                   data-bs-toggle="tooltip" data-bs-placement="bottom" title="{{ (i18n .tooltip)}}" data-animation="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        {{safeHTML .path}}
+    <nav class="bx--header__nav" aria-label="Platform Name" data-header-nav>
+        <ul class="bx--header__menu-bar" aria-label="Platform Name">
+            {{ $currentPage := . }}
+            {{ range $i,$item:=.Site.Menus.main }}
+                {{ $menu_item_url := .URL | relLangURL }}
+                {{ $page_url:= $currentPage.RelPermalink | relLangURL }}
+                <li>
+                    <a class="bx--header__menu-item {{ if eq $menu_item_url $page_url }} bx--header__menu-item--current {{ end }}" href="{{ $item.URL | relLangURL }}" tabindex="0">
+                        {{ i18n $item.Name | title}}
+                    </a>
+                </li>
+            {{end}}
+            {{range $i,$item:= .Site.Menus.contact}}
+                {{ $menu_item_url := .URL | relLangURL }}
+                {{ $page_url:= $currentPage.RelPermalink | relLangURL }}
+                <li>
+                    <a class="bx--header__menu-item {{ if eq $menu_item_url $page_url }} bx--header__menu-item--current {{ end }}" href="{{ $item.URL | relLangURL }}" tabindex="0">
+                        {{ i18n $item.Name | title}}
+                    </a>
+                </li>
+            {{end}}
+
+            <li class="bx--header__submenu " data-header-submenu>
+                <a class="bx--header__menu-item bx--header__menu-title" aria-haspopup="true"
+                   aria-expanded="false" href="javascript:void(0)" tabindex="0">
+                    More
+                    <svg class="bx--header__menu-arrow" width="12" height="7" aria-hidden="true">
+                        <path d="M6.002 5.55L11.27 0l.726.685L6.003 7 0 .685.726 0z"/>
                     </svg>
                 </a>
-                {{end}}
-
-            </div>
-
-            <button class="navbar-toggler pe-0 ms-2 ms-md-3" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#menu-4" aria-controls="menu-4" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                <svg data-name="Icon 01" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <path data-name="Icon Color"
-                          d="M.75,9.5a.751.751,0,0,1-.1-1.494L.75,8h16a.75.75,0,0,1,.1,1.493l-.1.007Zm0-8A.75.75,0,0,1,.648.007L.75,0h16a.75.75,0,0,1,.1,1.493l-.1.007Z"
-                          transform="translate(3.25 7.25)" fill="#212121"></path>
-                </svg>
-            </button>
-            <div class="collapse navbar-collapse" id="menu-4">
-
-                <ul class="navbar-nav  pt-3 pt-lg-0">
-                    {{ range $i,$item:=.Site.Menus.main }}
-                    <li class="nav-item {{if eq $item.URL (substr (print "/" $.File.Dir) 0 -1)}} active {{end}}">
-                    <a class="nav-link font-weight-bold " href="{{ $item.URL | relLangURL }}">
-                        {{ upper (i18n $item.Name) }}
-                    </a>
-                    </li>
-                    {{end}}
-                    {{range .Site.Menus.contact}}
-                    <li class="nav-item">
-                        <a class="nav-link font-weight-bold" href="{{.URL|relLangURL}}">
-                            {{upper ( i18n .Name )}}
+                <ul class="bx--header__menu" aria-label="L1 link 3">
+                    {{ range $i,$item:=.Site.Menus.more }}
+                    <li role="none">
+                        <a class="bx--header__menu-item " href="{{ $item.URL | relLangURL }}" tabindex="-1">
+                          <span class="bx--text-truncate--end">
+                            {{ i18n $item.Name | title}}
+                          </span>
                         </a>
                     </li>
                     {{end}}
-                    <li class="nav-item dropdown">
-                        <a class="nav-link font-weight-bold" href="#" role="button" id="dropdownMenuLink1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span>{{upper (i18n "morePagesTranslation")}}</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="4.444" viewBox="0 0 8 4.444">
-                                <path data-name="Icon Color" d="M3.686.13a.444.444,0,0,1,.672.579l-.043.05L1.073,4,4.314,7.241a.445.445,0,0,1,.043.579l-.043.05a.445.445,0,0,1-.579.043l-.05-.043L.13,4.314a.445.445,0,0,1-.043-.579l.043-.05Z" transform="translate(0 4.444) rotate(-90)" fill="#212121"/>
-                            </svg>
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
-                            {{ range $i,$item:=.Site.Menus.more }}
-                            <li><a class="dropdown-item " href="{{ $item.URL | relLangURL }}">{{ upper (i18n $item.Name) }}</a></li>
-                            {{end}}
-                        </ul>
-                    </li>
                 </ul>
-            </div>
-        </nav>
+            </li>
+        </ul>
+    </nav>
+    <div class="bx--header__global">
+        {{range $.Site.Params.ownerSocialLinks}}
+        <a href="/">
+            <button class="bx--header__menu-trigger bx--header__action" aria-label="{{.tooltip}}"
+                    title="{{.tooltip}}">
+                <svg id="ss" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="24" height="24" fill="fff"
+                     opacity="1">
+                    {{safeHTML .path}}
+                </svg>
+
+            </button>
+        </a>
+
+        {{end}}
+
     </div>
 </header>
+
+<div class="bx--navigation" id="navigation-menu-m6ibyfeacg"
+     hidden data-navigation-menu>
+    <div class="bx--navigation-section">
+        <ul class="bx--navigation-items">
+            {{ range $i,$item:=.Site.Menus.main }}
+            <li class="bx--navigation-item bx--navigation-item--icon ">
+                <a class="bx--navigation-link " href="{{ $item.URL | relLangURL }}">
+                    <div class="bx--navigation-icon">
+                        <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"
+                             aria-hidden="true">
+                            <path
+                                    d="M8.24 25.14L7 26.67a14 14 0 0 0 4.18 2.44l.68-1.88a12 12 0 0 1-3.62-2.09zm-4.05-7.07l-2 .35A13.89 13.89 0 0 0 3.86 23l1.73-1a11.9 11.9 0 0 1-1.4-3.93zm7.63-13.31l-.68-1.88A14 14 0 0 0 7 5.33l1.24 1.53a12 12 0 0 1 3.58-2.1zM5.59 10L3.86 9a13.89 13.89 0 0 0-1.64 4.54l2 .35A11.9 11.9 0 0 1 5.59 10zM16 2v2a12 12 0 0 1 0 24v2a14 14 0 0 0 0-28z"/>
+                        </svg>
+                    </div>
+                    {{ i18n $item.Name | title}}
+                </a>
+            </li>
+            {{end}}
+            <li class="bx--navigation-item bx--navigation-item--icon">
+                <a class="bx--navigation-link" href="contact">
+                    <div class="bx--navigation-icon">
+                        <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"
+                             aria-hidden="true">
+                            <path
+                                    d="M8.24 25.14L7 26.67a14 14 0 0 0 4.18 2.44l.68-1.88a12 12 0 0 1-3.62-2.09zm-4.05-7.07l-2 .35A13.89 13.89 0 0 0 3.86 23l1.73-1a11.9 11.9 0 0 1-1.4-3.93zm7.63-13.31l-.68-1.88A14 14 0 0 0 7 5.33l1.24 1.53a12 12 0 0 1 3.58-2.1zM5.59 10L3.86 9a13.89 13.89 0 0 0-1.64 4.54l2 .35A11.9 11.9 0 0 1 5.59 10zM16 2v2a12 12 0 0 1 0 24v2a14 14 0 0 0 0-28z"/>
+                        </svg>
+                    </div>
+                    Contact
+                </a>
+            </li>
+            <li class="bx--navigation-item bx--navigation-item--icon">
+                <a class="bx--navigation-link" href="javascript:void(0)">
+                    <div class="bx--navigation-icon">
+                        <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"
+                             aria-hidden="true">
+                            <path
+                                    d="M8.24 25.14L7 26.67a14 14 0 0 0 4.18 2.44l.68-1.88a12 12 0 0 1-3.62-2.09zm-4.05-7.07l-2 .35A13.89 13.89 0 0 0 3.86 23l1.73-1a11.9 11.9 0 0 1-1.4-3.93zm7.63-13.31l-.68-1.88A14 14 0 0 0 7 5.33l1.24 1.53a12 12 0 0 1 3.58-2.1zM5.59 10L3.86 9a13.89 13.89 0 0 0-1.64 4.54l2 .35A11.9 11.9 0 0 1 5.59 10zM16 2v2a12 12 0 0 1 0 24v2a14 14 0 0 0 0-28z"/>
+                        </svg>
+                    </div>
+                    Item link
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="bx--navigation-section">
+        <ul class="bx--navigation-items">
+            <li
+                    class="bx--navigation-item bx--navigation-item--active bx--navigation-item--icon">
+                <a class="bx--navigation-link" href="javascript:void(0)">
+                    <div class="bx--navigation-icon">
+                        <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"
+                             aria-hidden="true">
+                            <path
+                                    d="M8.24 25.14L7 26.67a14 14 0 0 0 4.18 2.44l.68-1.88a12 12 0 0 1-3.62-2.09zm-4.05-7.07l-2 .35A13.89 13.89 0 0 0 3.86 23l1.73-1a11.9 11.9 0 0 1-1.4-3.93zm7.63-13.31l-.68-1.88A14 14 0 0 0 7 5.33l1.24 1.53a12 12 0 0 1 3.58-2.1zM5.59 10L3.86 9a13.89 13.89 0 0 0-1.64 4.54l2 .35A11.9 11.9 0 0 1 5.59 10zM16 2v2a12 12 0 0 1 0 24v2a14 14 0 0 0 0-28z"/>
+                        </svg>
+                    </div>
+                    Item link
+                </a>
+            </li>
+            <li class="bx--navigation-item bx--navigation-item--icon">
+                <a class="bx--navigation-link" href="javascript:void(0)">
+                    <div class="bx--navigation-icon">
+                        <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"
+                             aria-hidden="true">
+                            <path
+                                    d="M8.24 25.14L7 26.67a14 14 0 0 0 4.18 2.44l.68-1.88a12 12 0 0 1-3.62-2.09zm-4.05-7.07l-2 .35A13.89 13.89 0 0 0 3.86 23l1.73-1a11.9 11.9 0 0 1-1.4-3.93zm7.63-13.31l-.68-1.88A14 14 0 0 0 7 5.33l1.24 1.53a12 12 0 0 1 3.58-2.1zM5.59 10L3.86 9a13.89 13.89 0 0 0-1.64 4.54l2 .35A11.9 11.9 0 0 1 5.59 10zM16 2v2a12 12 0 0 1 0 24v2a14 14 0 0 0 0-28z"/>
+                        </svg>
+                    </div>
+                    Item link
+                </a>
+            </li>
+            <li class="bx--navigation-item bx--navigation-item--icon">
+                <a class="bx--navigation-link" href="javascript:void(0)">
+                    <div class="bx--navigation-icon">
+                        <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"
+                             aria-hidden="true">
+                            <path
+                                    d="M8.24 25.14L7 26.67a14 14 0 0 0 4.18 2.44l.68-1.88a12 12 0 0 1-3.62-2.09zm-4.05-7.07l-2 .35A13.89 13.89 0 0 0 3.86 23l1.73-1a11.9 11.9 0 0 1-1.4-3.93zm7.63-13.31l-.68-1.88A14 14 0 0 0 7 5.33l1.24 1.53a12 12 0 0 1 3.58-2.1zM5.59 10L3.86 9a13.89 13.89 0 0 0-1.64 4.54l2 .35A11.9 11.9 0 0 1 5.59 10zM16 2v2a12 12 0 0 1 0 24v2a14 14 0 0 0 0-28z"/>
+                        </svg>
+                    </div>
+                    Item link
+                </a>
+            </li>
+            <li class="bx--navigation-item bx--navigation-item--icon">
+                <div class="bx--navigation__category">
+                    <button class="bx--navigation__category-toggle" aria-haspopup="true" aria-expanded="false"
+                            aria-controls="category-1-menu">
+                        <div class="bx--navigation-icon">
+
+                            <svg aria-hidden="true" width="20" height="20" xmlns="http://www.w3.org/2000/svg"
+                                 viewBox="0 0 32 32">
+                                <path
+                                        d="M8.24 25.14L7 26.67a14 14 0 0 0 4.18 2.44l.68-1.88a12 12 0 0 1-3.62-2.09zm-4.05-7.07l-2 .35A13.89 13.89 0 0 0 3.86 23l1.73-1a11.9 11.9 0 0 1-1.4-3.93zm7.63-13.31l-.68-1.88A14 14 0 0 0 7 5.33l1.24 1.53a12 12 0 0 1 3.58-2.1zM5.59 10L3.86 9a13.89 13.89 0 0 0-1.64 4.54l2 .35A11.9 11.9 0 0 1 5.59 10zM16 2v2a12 12 0 0 1 0 24v2a14 14 0 0 0 0-28z"/>
+                            </svg>
+                        </div>
+                        <div class="bx--navigation__category-title">
+                            L1 category
+                            <svg aria-hidden="true" width="20" height="20" xmlns="http://www.w3.org/2000/svg"
+                                 viewBox="0 0 32 32">
+                                <path d="M16 22L6 12l1.414-1.414L16 19.172l8.586-8.586L26 12 16 22z"/>
+                            </svg>
+                        </div>
+                    </button>
+                    <ul id="category-1-menu" class="bx--navigation__category-items">
+                        <li class="bx--navigation__category-item">
+                            <a class="bx--navigation-link" href="javascript:void(0)">
+                                Nested link
+                            </a>
+                        </li>
+                        <li
+                                class="bx--navigation__category-item bx--navigation__category-item--active">
+                            <a class="bx--navigation-link" href="javascript:void(0)">
+                                Nested link
+                            </a>
+                        </li>
+                        <li class="bx--navigation__category-item">
+                            <a class="bx--navigation-link" href="javascript:void(0)">
+                                Nested link
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

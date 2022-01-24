@@ -1,7 +1,26 @@
 {{ define "main" }}
-{{with $.Site.Menus.main}}
-    {{ $.Scratch.Set "portfolioLink" (substr (index . 1).URL 1) }}
-{{end}}
-{{ partial "pages/portfolio/_list.html" (dict "projects" ($.Site.GetPage (.Scratch.Get "portfolioLink") .Section).Pages "limit" 10 "cols" 6)}}
+portfolio-list
+<br>
+<div class="bx--grid--full-width">
+    <div class="bx--row">
+        <div class="bx--col-lg-3">
+
+        </div>
+        <div class="bx--col--auto">
+            <div class="bx--grid bx--grid--condensed" style="padding: 0">
+                <div class="bx--row">
+                    {{ range .Pages }}
+                        <div class="bx--col-lg-4" >
+                            {{- partial "components/portfolio-card.html" . -}}
+                        </div>
+                    {{end}}
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
 {{ end }}
 

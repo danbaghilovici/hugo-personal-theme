@@ -1,7 +1,0 @@
-{{ define "main" }}
-{{with $.Site.Menus.more}}
-{{ $.Scratch.Set "blogLink" (substr (index . 0).URL 1) }}
-{{end}}
-{{ partial "pages/blog/_list.html" (dict "posts" ($.Site.GetPage "blog" .Section).Pages "limit" 10)}}
-{{ end }}
-
