@@ -1,84 +1,68 @@
 {{define "main"}}
-<!--<div class="bx&#45;&#45;grid&#45;&#45;full-width">-->
-<!--    <div class="bx&#45;&#45;row">-->
-<!--        <div class="bx&#45;&#45;col">-->
-
-<!--            <div class="bx&#45;&#45;grid&#45;&#45;full-width">-->
-<!--                <div class="bx&#45;&#45;row">-->
-<!--                    <div class="bx&#45;&#45;col-lg-3">-->
-<!--                        <a data-tile="clickable" class="bx&#45;&#45;tile bx&#45;&#45;tile&#45;&#45;clickable" tabindex="0" style="padding: 0">-->
-<!--                            <img src="https://images.unsplash.com/photo-1642833465562-f81525657851?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"-->
-<!--                                 style="width: 100%" height="auto">-->
-<!--                            <div class="bx&#45;&#45;grid" style="padding: 1rem;">-->
-<!--                                <div class="bx&#45;&#45;row">-->
-<!--                                    <div class="bx&#45;&#45;col">-->
-<!--                                        <h6 style="color: grey">Industry</h6>-->
-<!--                                        <h3 style="padding-bottom: 5rem">Intro to carbon desing system</h3>-->
-<!--                                        <h5>Book a consultation -></h5>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-
-
-<!--                        </a>-->
-<!--                    </div>-->
-<!--                    <div class="bx&#45;&#45;col-lg-3">-->
-<!--                        <a data-tile="clickable" class="bx&#45;&#45;tile bx&#45;&#45;tile&#45;&#45;clickable " tabindex="0" style="padding: 0">-->
-<!--                            <img src="https://images.unsplash.com/photo-1642833465562-f81525657851?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"-->
-<!--                                 style="width: 100%" height="auto">-->
-<!--                            <div class="bx&#45;&#45;grid" style="padding: 1rem;">-->
-<!--                                <div class="bx&#45;&#45;row">-->
-<!--                                    <div class="bx&#45;&#45;col">-->
-<!--                                        <h6 style="color: grey">Industry</h6>-->
-<!--                                        <h3 style="padding-bottom: 5rem">Intro to carbon desing system</h3>-->
-<!--                                        <h5>Book a consultation -></h5>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-
-
-<!--                        </a>-->
-<!--                    </div>-->
-<!--                </div>-->
-
-<!--            </div>-->
-
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-<!--{{range where $.Site.Pages "Type" "page"}}-->
-<!--<p>{{.IsPage}} {{.Permalink}} {{.Type}} {{.Params.displayName}}</p>-->
-<!--{{end}}-->
-<!--<br>-->
-<!--{{range $.Site.Sections }}-->
-<!--<p> {{.IsPage}} {{.Permalink}} {{.Type}}</p>-->
-<!--{{end}}-->
-<!--<br>-->
-
-<!--{{range union (where $.Site.Pages "Type" "page") $.Site.Sections}}-->
-<!--<p>{{.Permalink}}</p>-->
-<!--{{end}}-->
-
-<!--{{ range $i,$item:=.Site.Menus.main }}-->
-<!--<li class="nav-item ">-->
-<!--<a class="nav-link font-weight-bold " href="{{ $item.URL | relLangURL }}">-->
-<!--    {{ upper (i18n $item.Name) }}-->
-<!--    {{if eq $item.URL (substr (print "/" $.File.Dir) 0 -1)}} active {{end}}-->
-<!--</a>-->
-<!--</li>-->
-<!--{{end}}-->
-
-{{ $currentPage := . }}
-{{ range .Site.Menus.main }}
-
-{{ $menu_item_url := .URL | relLangURL }}
-{{ $page_url:= $currentPage.RelPermalink | relLangURL }}
-
-{{ if eq $menu_item_url $page_url }}
-<p>{{$menu_item_url}}</p>
-{{ end }}
-
-{{ end }}
-
+<div class="bx--row resource-card-group feature-card-group">
+    <div class="Grid-module--column--3U35z bx--no-gutter-sm bx--col-md-4 bx--col-lg-4">
+        <div class="bx--card">
+            <div class="bx--aspect-ratio bx--aspect-ratio--1x1">
+                <div class="bx--aspect-ratio--object"><a
+                        href="https://github.com/carbon-design-system/carbon-for-ibm-dotcom/wiki/Roadmap"
+                        class="bx--tile bx--tile--clickable" target="_blank"><h5 class="bx--resource-card__subtitle">
+                    View</h5><h4 class="bx--resource-card__title">Roadmap</h4>
+                    <div class="bx--resource-card__icon--img"><img
+                            src="/ef5f18518c9400b4f8f61c77e91542f4/automobile.svg" alt="Automobile Pictogram"></div>
+                    <div class="bx--resource-card__icon--action">
+                        <svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
+                             fill="currentColor" aria-label="Open resource" width="20" height="20" viewBox="0 0 32 32"
+                             role="img">
+                            <path d="M26,28H6a2.0027,2.0027,0,0,1-2-2V6A2.0027,2.0027,0,0,1,6,4H16V6H6V26H26V16h2V26A2.0027,2.0027,0,0,1,26,28Z"></path>
+                            <path d="M20 2L20 4 26.586 4 18 12.586 19.414 14 28 5.414 28 12 30 12 30 2 20 2z"></path>
+                        </svg>
+                    </div>
+                </a></div>
+            </div>
+        </div>
+    </div>
+    <div class="Grid-module--column--3U35z bx--no-gutter-sm bx--col-md-4 bx--col-lg-4">
+        <div class="bx--resource-card">
+            <div class="bx--aspect-ratio bx--aspect-ratio--1x1">
+                <div class="bx--aspect-ratio--object"><a
+                        href="https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/5888"
+                        class="bx--tile bx--tile--clickable" target="_blank"><h5 class="bx--resource-card__subtitle">
+                    View</h5><h4 class="bx--resource-card__title">Release schedule</h4>
+                    <div class="bx--resource-card__icon--img"><img src="/827327901a546381c6a1a670d14543dc/calendar.svg"
+                                                                   alt="Calendar Pictogram"></div>
+                    <div class="bx--resource-card__icon--action">
+                        <svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
+                             fill="currentColor" aria-label="Open resource" width="20" height="20" viewBox="0 0 32 32"
+                             role="img">
+                            <path d="M26,28H6a2.0027,2.0027,0,0,1-2-2V6A2.0027,2.0027,0,0,1,6,4H16V6H6V26H26V16h2V26A2.0027,2.0027,0,0,1,26,28Z"></path>
+                            <path d="M20 2L20 4 26.586 4 18 12.586 19.414 14 28 5.414 28 12 30 12 30 2 20 2z"></path>
+                        </svg>
+                    </div>
+                </a></div>
+            </div>
+        </div>
+    </div>
+    <div class="Grid-module--column--3U35z bx--no-gutter-sm bx--col-md-4 bx--col-lg-4">
+        <div class="bx--resource-card">
+            <div class="bx--aspect-ratio bx--aspect-ratio--1x1">
+                <div class="bx--aspect-ratio--object"><a href="https://cognitive-app.slack.com/archives/C2PLX8GQ6"
+                                                         class="bx--tile bx--tile--clickable" target="_blank"><h5
+                        class="bx--resource-card__subtitle">Join</h5><h4 class="bx--resource-card__title">
+                    carbon-for-ibm-dotcom</h4>
+                    <div class="bx--resource-card__icon--img"><img
+                            src="/a68cd80f8bbb10cb3137a09bbe24a79c/slack_pictogram.svg" alt="Slack Pictogram"></div>
+                    <div class="bx--resource-card__icon--action">
+                        <svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
+                             fill="currentColor" aria-label="Open resource" width="20" height="20" viewBox="0 0 32 32"
+                             role="img">
+                            <path d="M26,28H6a2.0027,2.0027,0,0,1-2-2V6A2.0027,2.0027,0,0,1,6,4H16V6H6V26H26V16h2V26A2.0027,2.0027,0,0,1,26,28Z"></path>
+                            <path d="M20 2L20 4 26.586 4 18 12.586 19.414 14 28 5.414 28 12 30 12 30 2 20 2z"></path>
+                        </svg>
+                    </div>
+                </a></div>
+            </div>
+        </div>
+    </div>
+</div>
 {{end}}
 

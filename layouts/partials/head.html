@@ -8,30 +8,30 @@
     <link href="../assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <!-- Fabrx External CSS -->
     {{ $styles:=slice
-        (resources.Get "css/styles.css" )
+    (resources.Get "css/styles4.css" | minify)
     }}
     {{range $styles}}
-        <link href="{{.Permalink}}" rel="stylesheet" type="text/css"/>
+        <link href="{{.Permalink  }}" rel="stylesheet" type="text/css"/>
     {{end}}
 <!--    <link href="https://unpkg.com/carbon-components/css/carbon-components.min.css" rel="stylesheet" type="text/css"/>-->
-    <style>
-        @media only screen and (min-width: 66rem) {
-            .bx--header__menu-trigger,.bx--navigation{
-                display: none;
-            }
+<!--    <style>-->
+<!--        @media only screen and (min-width: 66rem) {-->
+<!--            .bx&#45;&#45;header__menu-trigger,.bx&#45;&#45;navigation{-->
+<!--                display: none;-->
+<!--            }-->
 
-        }
-        body{
-            min-height: 100vh;
-        }
-        .bx--header__global button{
-            display: inline-block;
-        }
+<!--        }-->
+<!--        body{-->
+<!--            min-height: 100vh;-->
+<!--        }-->
+<!--        .bx&#45;&#45;header__global button{-->
+<!--            display: inline-block;-->
+<!--        }-->
 
-        /*.bx--header__action{*/
-        /*    display: inline-block;*/
-        /*}*/
-    </style>
+<!--        /*.bx&#45;&#45;header__action{*/-->
+<!--        /*    display: inline-block;*/-->
+<!--        /*}*/-->
+<!--    </style>-->
 
 
 
