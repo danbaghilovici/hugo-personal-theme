@@ -2,20 +2,14 @@
 <html lang="{{.Site.Language}}">
     {{- partial "head.html" (dict "ctx" . "forPrint" false) -}}
 
-    <body class="bx--body " >
+    <body >
     {{- partial "header.html" . -}}
-
-    <div class="bx--content" style="min-height: 100vh">
+    <div class="bx--content" >
         {{- block "main" . }}{{- end }}
-    </div>
-    <div class="dds-back-to-top">
-        <button class="bx--back-to-top__btn">
-            <svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="20" height="20" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 14L6 24 7.4 25.4 16 16.8 24.6 25.4 26 24zM4 8H28V10H4z"></path></svg>
-        </button>
 
     </div>
-
     {{- partial "footer.html" . -}}
+
     </body>
 
 </html>

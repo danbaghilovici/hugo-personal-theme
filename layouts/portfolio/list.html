@@ -1,27 +1,29 @@
 {{ define "main" }}
-portfolio-list
-<br>
-<div class="bx--grid--full-width">
-    <div class="bx--row">
-        <div class="bx--col-lg-3">
-
-        </div>
-        <div class="bx--col--auto">
-            <div class="bx--grid bx--grid--condensed" style="padding: 0">
-                <div class="bx--row">
-                    {{ range .Pages }}
-                        <div class="bx--col-lg-4" >
-                            {{- partial "components/portfolio-card.html" . -}}
+<section id="portfolio-list-section" >
+    <div class="bx--grid" >
+        <div class="bx--row">
+            <div class="bx--col-lg-2 ">
+                <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h5>
+            </div>
+            <div class="bx--col">
+                <div class="bx--grid--condensed">
+                    <div class="bx--row">
+                        <div class="bx--col-lg-4 bx--col-md-4">
+                            {{- partial "components/card.html" (dict "ctx" . "media" false) -}}
                         </div>
-                    {{end}}
+                        <div class="bx--col-lg-4 bx--col-md-4">
+                            {{- partial "components/card.html" (dict "ctx" . "media" false) -}}
+                        </div>
+                        <div class="bx--col-lg-4 bx--col-md-4">
+                            {{- partial "components/card.html" (dict "ctx" . "media" false) -}}
+                        </div>
 
+                    </div>
                 </div>
             </div>
-
         </div>
     </div>
-</div>
 
-
+</section>
 {{ end }}
 

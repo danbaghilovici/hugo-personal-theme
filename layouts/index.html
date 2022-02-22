@@ -1,96 +1,245 @@
 {{define "main"}}
-<div class="bx--grid">
-
-    <div class="bx--row">
-        <div class="bx--col-lg-5">
-            <div class="outside">
-                <a class="bx--card " href="https://example.com">
-                    <div class="bx--card__content">
-                        <h5 class="bx--card__eyebrow">Industry</h5>
-                        <h1 class="bx--card__heading">Aerospace and defence</h1>
-                        <p class="bx--card__CardCTA" href="#">
-                            Book a consultation
-                            <svg    class="bx--card__pictogram"
-                                    slot="icon"
-                                    focusable="false"
-                                    preserveAspectRatio="xMidYMid meet"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="currentColor"
-                                    aria-hidden="true"
-                                    width="16"
-                                    height="16"
-                                    viewBox="0 0 20 20"
-                            >
-                                <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
-                            </svg>
-                        </p>
-                    </div>
-
-                </a>
+{{ $image := resources.Get "imgs/home-lead-image.jpg" }}
+<section class="leadspace" id="home-leadspace">
+    <div class="bx--grid">
+        <div class="bx--row--condensed heading-row">
+            <div class="bx--col-lg">
+                <h1 class="heading">Hello,<br> I'm <strong>Dan</strong></h1>
             </div>
         </div>
-        <div class="bx--col-lg-5">
-            <div class="outside">
-                <a class="bx--card " href="https://example.com">
-<!--                                        <img class="bx&#45;&#45;card__img" src="https://source.unsplash.com/random"/>-->
-                    <div class="bx--card__content">
-<!--                        <h5 class="bx&#45;&#45;card__eyebrow">Watson AI</h5>-->
-                        <h1 class="bx--card__heading">Business networks where everyone can win</h1>
-                        <div class="bx--card__footer">
-                            <p class="bx--card__cta " href="#">
-
-                                <svg
-                                        slot="icon"
-                                        focusable="false"
-                                        preserveAspectRatio="xMidYMid meet"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="currentColor"
-                                        aria-hidden="true"
-                                        width="16"
-                                        height="16"
-                                        viewBox="0 0 20 20"
-                                >
-                                    <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
-                                </svg>
-                            </p>
-                        </div>
-                    </div>
-
-                </a>
+        <div class="bx--row--condensed copy-row">
+            <div class="bx--col-lg">
+                <h2 class="copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
             </div>
         </div>
-        <div class="bx--col-lg-5">
-            <div class="outside">
-                <a class="bx--card " href="https://example.com">
-                                                            <img class="bx--card__img" style="max-height: 300px" src="https://source.unsplash.com/random"/>
-                    <div class="bx--card__content">
-                                                <h5 class="bx--card__eyebrow">Watson AI</h5>
-                        <h1 class="bx--card__heading">Business networks where everyone can win</h1>
-                        <div class="bx--card__footer">
-                            <p class="bx--card__cta " href="#">
+        <div class="bx--row--condensed cta-row">
+            <button class="bx--btn bx--btn--secondary">Explore portfolio</button>
+            <button class="bx--btn bx--btn--primary">Explore portfolio</button>
 
-                                <svg
-                                        slot="icon"
-                                        focusable="false"
-                                        preserveAspectRatio="xMidYMid meet"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="currentColor"
-                                        aria-hidden="true"
-                                        width="16"
-                                        height="16"
-                                        viewBox="0 0 20 20"
-                                >
-                                    <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
-                                </svg>
-                            </p>
+        </div>
+    </div>
+    <div class="media"
+         style="
+         background-image: url('{{$image.Permalink}}')"></div>
+</section>
+<section style="min-height: 100vh">
+    <div class="bx--grid" >
+        <div class="bx--row">
+            <div class="bx--col-lg-2 ">
+                <h3>What I do</h3>
+            </div>
+            <div class="bx--col">
+                <div class="bx--grid--full-width">
+                    <div class="bx--row">
+                        <div class="bx--col-lg-2 bx--col-md-2">
+                            <div data-tile="expandable" class="bx--tile bx--tile--expandable" tabindex="0">
+                                <button aria-label="expand menu" class="bx--tile__chevron">
+                                    <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 11L3 6 3.7 5.3 8 9.6 12.3 5.3 13 6z"></path></svg>
+                                </button>
+                                <div class="bx--tile-content">
+    <span data-tile-atf class="bx--tile-content__above-the-fold">
+      Javascript
+    </span>
+                                    <span class="bx--tile-content__below-the-fold">
+      Some description
+    </span>
+                                </div>
+                            </div>
+
                         </div>
-                    </div>
+                        <div class="bx--col-lg-2 bx--col-md-2">
+                            <a href="#" data-tile="clickable" class="bx--tile bx--tile--clickable" tabindex="0">Ceva</a>
+                        </div>
+                        <div class="bx--col-lg-2 bx--col-md-2">
+                            <a href="#" data-tile="clickable" class="bx--tile bx--tile--clickable" tabindex="0">Ceva</a>
+                        </div>
 
-                </a>
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
+
+</section>
+<!--<div class="bx&#45;&#45;grid">-->
+
+<!--    <div class="bx&#45;&#45;row">-->
+<!--        <div class="bx&#45;&#45;col-lg-5">-->
+<!--            <div class="outside">-->
+<!--                <a class="bx&#45;&#45;card " href="https://example.com">-->
+<!--                    <div class="bx&#45;&#45;card__content">-->
+<!--                        <h5 class="dds-card-link-heading">Industry</h5>-->
+<!--                        <h1 class="dds-card-heading">Aerospace and defence</h1>-->
+<!--                        <p class="" href="#">-->
+<!--                            Book a consultation-->
+<!--                            <svg    class="bx&#45;&#45;card__pictogram"-->
+<!--                                    slot="icon"-->
+<!--                                    focusable="false"-->
+<!--                                    preserveAspectRatio="xMidYMid meet"-->
+<!--                                    xmlns="http://www.w3.org/2000/svg"-->
+<!--                                    fill="currentColor"-->
+<!--                                    aria-hidden="true"-->
+<!--                                    width="16"-->
+<!--                                    height="16"-->
+<!--                                    viewBox="0 0 20 20"-->
+<!--                            >-->
+<!--                                <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>-->
+<!--                            </svg>-->
+<!--                        </p>-->
+<!--                    </div>-->
+
+<!--                </a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="bx&#45;&#45;col-lg-5">-->
+<!--            <div class="outside">-->
+<!--                <a class="bx&#45;&#45;card " href="https://example.com">-->
+<!--                    <div class="bx&#45;&#45;card__content">-->
+<!--                        <h5 class="bx&#45;&#45;card__eyebrow">Industry</h5>-->
+<!--                        <h1 class="bx&#45;&#45;card__heading">Aerospace and defence</h1>-->
+<!--                        <p class="" href="#">-->
+<!--                            Book a consultation-->
+<!--                            <svg    class="bx&#45;&#45;card__pictogram"-->
+<!--                                    slot="icon"-->
+<!--                                    focusable="false"-->
+<!--                                    preserveAspectRatio="xMidYMid meet"-->
+<!--                                    xmlns="http://www.w3.org/2000/svg"-->
+<!--                                    fill="currentColor"-->
+<!--                                    aria-hidden="true"-->
+<!--                                    width="16"-->
+<!--                                    height="16"-->
+<!--                                    viewBox="0 0 20 20"-->
+<!--                            >-->
+<!--                                <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>-->
+<!--                            </svg>-->
+<!--                        </p>-->
+<!--                    </div>-->
+
+<!--                </a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="bx&#45;&#45;col-lg-5">-->
+<!--            <div class="outside">-->
+<!--                <a class="bx&#45;&#45;card " href="https://example.com">-->
+<!--                    &lt;!&ndash;                                        <img class="bx&#45;&#45;card__img" src="https://source.unsplash.com/random"/>&ndash;&gt;-->
+<!--                    <div class="bx&#45;&#45;card__content">-->
+<!--                        &lt;!&ndash;                        <h5 class="bx&#45;&#45;card__eyebrow">Watson AI</h5>&ndash;&gt;-->
+<!--                        <h1 class="bx&#45;&#45;card__heading">Business networks where everyone can win</h1>-->
+<!--                        <div class="bx&#45;&#45;card__footer">-->
+<!--                            <p class="" href="#">-->
+
+<!--                                <svg-->
+<!--                                        slot="icon"-->
+<!--                                        focusable="false"-->
+<!--                                        preserveAspectRatio="xMidYMid meet"-->
+<!--                                        xmlns="http://www.w3.org/2000/svg"-->
+<!--                                        fill="currentColor"-->
+<!--                                        aria-hidden="true"-->
+<!--                                        width="16"-->
+<!--                                        height="16"-->
+<!--                                        viewBox="0 0 20 20"-->
+<!--                                >-->
+<!--                                    <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>-->
+<!--                                </svg>-->
+<!--                            </p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                </a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="bx&#45;&#45;col-lg-5">-->
+<!--            <div class="outside">-->
+<!--                {{- partial "components/card.html" -}}-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<div class="dds-card-group ">-->
+<!--    <div class="bx&#45;&#45;card-group__cards__row">-->
+<!--        <div class="bx&#45;&#45;card-group__cards__col">-->
+<!--            <a class="bx&#45;&#45;card " href="https://example.com">-->
+<!--                <div class="bx&#45;&#45;card__content">-->
+<!--                    <h5 class="dds-card-link-heading">Industry</h5>-->
+<!--                    <h1 class="dds-card-heading">Aerospace and defence</h1>-->
+
+<!--                    <p class="" href="#">-->
+<!--                        Book a consultation-->
+<!--                        <svg    class="bx&#45;&#45;card__pictogram"-->
+<!--                                slot="icon"-->
+<!--                                focusable="false"-->
+<!--                                preserveAspectRatio="xMidYMid meet"-->
+<!--                                xmlns="http://www.w3.org/2000/svg"-->
+<!--                                fill="currentColor"-->
+<!--                                aria-hidden="true"-->
+<!--                                width="16"-->
+<!--                                height="16"-->
+<!--                                viewBox="0 0 20 20"-->
+<!--                        >-->
+<!--                            <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>-->
+<!--                        </svg>-->
+<!--                    </p>-->
+<!--                </div>-->
+
+<!--            </a>-->
+<!--        </div>-->
+<!--        <div class="bx&#45;&#45;card-group__cards__col">-->
+<!--            <a class="bx&#45;&#45;card " href="https://example.com">-->
+<!--                <div class="bx&#45;&#45;card__content">-->
+<!--                    <h5 class="dds-card-link-heading">Industry</h5>-->
+<!--                    <h1 class="dds-card-heading">Aerospace and defence</h1>-->
+
+<!--                    <p class="" href="#">-->
+<!--                        Book a consultation-->
+<!--                        <svg    class="bx&#45;&#45;card__pictogram"-->
+<!--                                slot="icon"-->
+<!--                                focusable="false"-->
+<!--                                preserveAspectRatio="xMidYMid meet"-->
+<!--                                xmlns="http://www.w3.org/2000/svg"-->
+<!--                                fill="currentColor"-->
+<!--                                aria-hidden="true"-->
+<!--                                width="16"-->
+<!--                                height="16"-->
+<!--                                viewBox="0 0 20 20"-->
+<!--                        >-->
+<!--                            <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>-->
+<!--                        </svg>-->
+<!--                    </p>-->
+<!--                </div>-->
+
+<!--            </a>-->
+<!--        </div>-->
+<!--        <div class="bx&#45;&#45;card-group__cards__col">-->
+<!--            <a class="bx&#45;&#45;card " href="https://example.com">-->
+<!--                <div class="bx&#45;&#45;card__content">-->
+<!--                    <h5 class="dds-card-link-heading">Industry</h5>-->
+<!--                    <h1 class="dds-card-heading">Aerospace and defence</h1>-->
+
+<!--                    <p class="" href="#">-->
+<!--                        Book a consultation-->
+<!--                        <svg    class="bx&#45;&#45;card__pictogram"-->
+<!--                                slot="icon"-->
+<!--                                focusable="false"-->
+<!--                                preserveAspectRatio="xMidYMid meet"-->
+<!--                                xmlns="http://www.w3.org/2000/svg"-->
+<!--                                fill="currentColor"-->
+<!--                                aria-hidden="true"-->
+<!--                                width="16"-->
+<!--                                height="16"-->
+<!--                                viewBox="0 0 20 20"-->
+<!--                        >-->
+<!--                            <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>-->
+<!--                        </svg>-->
+<!--                    </p>-->
+<!--                </div>-->
+
+<!--            </a>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--</div>-->
+
 
 {{end}}
 
