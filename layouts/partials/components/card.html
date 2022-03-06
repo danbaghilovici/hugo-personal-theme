@@ -1,19 +1,31 @@
-<a data-tile="clickable" class="bx--tile bx--tile--clickable card" tabindex="0" href="#" >
+<a data-tile="clickable" class="bx--tile bx--tile--clickable card {{if .index}}index{{end}}" tabindex="0" href="{{.link}}" >
     {{with .media}}
-        <div class="media"></div>
+        <div class="media" style="background-image: url('{{.}}')"></div>
     {{end}}
 
     <div class="bx--grid--full-width " style="{{with .media}} padding-top: 1rem;{{end}}" >
         <div class="bx-row content" style="">
-            <div class="bx--col" style="">
-                <h1 class="heading">Top 3 javascript frameworks and some more random text</h1>
+            {{if .index}}
+            <div class="bx--col heading-col" style="min-height: {{if .media}}60rem{{else}}0{{end}};">
+                <h1 class="heading">{{.heading}}</h1>
+                <svg class="icon" width="24" height="24" viewBox="0 0 32 32">
+                    <polygon points="18 6 16.57 7.393 24.15 15 4 15 4 17 24.15 17 16.57 24.573 18 26 28 16 18 6"/>
+                </svg>
+            </div>
+            {{else}}
+            <div class="bx--col">
+                <h1 class="heading">{{.heading}}</h1>
             </div>
             <div class="bx--col copy-col" >
-                <h4 class="copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pretium bibendum urna.</h4>
+                <h4 class="copy">{{.copy}}</h4>
             </div>
             <div class="bx--col cta-col">
-                <h5 class="bx--link cta">Book</h5>
+                <h5 class="bx--link cta">{{.ctaText}}</h5>
+                <svg  width="24" height="24" viewBox="0 0 32 32">
+                    <polygon points="18 6 16.57 7.393 24.15 15 4 15 4 17 24.15 17 16.57 24.573 18 26 28 16 18 6"/>
+                </svg>
             </div>
+            {{end}}
         </div>
 
     </div>

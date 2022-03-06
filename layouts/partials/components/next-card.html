@@ -1,0 +1,7 @@
+{{if .ctx}}
+<a href="{{.ctx.Permalink}}" data-tile="clickable" class="bx--tile bx--tile--clickable next-post-tile" tabindex="0" >
+    <p>{{if .isNext}}Next{{else}}Previous{{end}}</p>
+    <h4>{{.ctx.Title}}</h4>
+</a>
+{{end}}
+

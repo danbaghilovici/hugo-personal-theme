@@ -1,0 +1,81 @@
+{{ $allBlogs:= where .ctx.Site.Pages "Section" "blog"   }}
+{{ $blogPosts:=(where $allBlogs ".IsPage" true).Reverse}}
+{{ $listPage:=(first 1 (where $allBlogs ".IsNode" true)) }}
+<section id="portfolio-list-section" >
+    {{if .onHome}}
+    <div class="bx--grid" >
+        <div class="bx--row">
+            <div class="bx--col-lg-2">
+                <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h5>
+            </div>
+            <div class="bx--col">
+                <div class="bx--grid--condensed">
+                    <div class="bx--row">
+                        {{range first 5 $blogPosts}}
+                        <div class="bx--col-lg-4 bx--col-md-4">
+                            {{- partial "components/card.html"
+                            ( dict
+                            "ctx" .
+                            "media" false
+                            "heading" .Params.Title
+                            "copy" .Params.Description
+                            "link" .Permalink
+                            "ctaText" "Read More"
+                            )
+                            -}}
+                        </div>
+                        {{end}}
+                        {{range $listPage}}
+                        <div class="bx--col-lg-4 bx--col-md-4">
+                            {{- partial "components/card.html"
+                            ( dict
+                            "ctx" .
+                            "heading" "Discover more blog posts"
+                            "copy" .Params.Description
+                            "link" .Permalink
+                            "ctaText" "Read More"
+                            "index" true
+                            )
+                            -}}
+                        </div>
+                        {{end}}
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    {{else}}
+    <div class="bx--grid" >
+        <div class="bx--row">
+            <div class="bx--col-lg-2 " >
+                <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h5>
+                <br>
+                <p>Aliquam nulla nisi, accumsan in nisi eget, semper tincidunt urna. </p>
+                <br>
+            </div>
+            <div class="bx--col">
+                <div class="bx--grid--condensed">
+                    <div class="bx--row">
+                        {{range $blogPosts}}
+                        <div class="bx--col-lg-4 bx--col-md-4">
+                            {{- partial "components/card.html"
+                            ( dict
+                            "ctx" .
+                            "media" .Params.Media
+                            "heading" .Params.Title
+                            "copy" .Params.Description
+                            "link" .Permalink
+                            "ctaText" "Read More"
+                            )
+                            -}}
+                        </div>
+                        {{end}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{end}}
+</section>

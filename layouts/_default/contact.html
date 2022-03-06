@@ -2,27 +2,27 @@
 <section id="contact-section">
     <div class="bx--grid">
         <div class="bx--row">
-            <div class="bx--col-lg-2">
+            <div class="bx--col-lg-2 content-sidenote">
                 <h5>Connect with me</h5>
+                <br>
+                <p>Want to get in touch with me?<br>I'm available on different platforms or just fill the form</p>
+                <br>
             </div>
             <div class="bx--col-lg">
 
                 <div class="bx--grid--condensed">
                     <div class="bx--row">
-                        <div class="bx--col-lg bx--col-md-2 bx--col-sm-2">
-                            {{- partial "components/pictogram-card.html" . -}}
+                        {{range $.Site.Params.ownerSocialLinks}}
+                        <div class="bx--col-lg bx--col-md-2 bx--col-sm-4">
+                            {{- partial "components/pictogram-card.html" (dict "ctx" . "name" ((print "Via " .name) | title) "link" .link "svg" .path) -}}
                         </div>
-                        <div class="bx--col-lg bx--col-md-2 bx--col-sm-2">
-                            {{- partial "components/pictogram-card.html" . -}}
-                        </div>
-                        <div class="bx--col-lg bx--col-md-2 bx--col-sm-2">
-                            {{- partial "components/pictogram-card.html" . -}}
-                        </div>
-                        <div class="bx--col-lg bx--col-md-2 bx--col-sm-2">
-                            {{- partial "components/pictogram-card.html" . -}}
+                        {{end}}
+                        <div class="bx--col-lg bx--col-md-2 bx--col-sm-4">
+                            {{- partial "components/pictogram-card.html" (dict "ctx" . "name" "Via Email" "link" "dan.baghilovici@gmail.com" "svg" "<path d='M28,6H4A2,2,0,0,0,2,8V24a2,2,0,0,0,2,2H28a2,2,0,0,0,2-2V8A2,2,0,0,0,28,6ZM25.8,8,16,14.78,6.2,8ZM4,24V8.91l11.43,7.91a1,1,0,0,0,1.14,0L28,8.91V24Z' transform='translate(0)'/>") -}}
                         </div>
                         <div class="bx--col-lg-max bx--col-md-8">
-                            <div class="bx--tile" style="background: #262626">
+                            <div class="bx--tile form-wrapper" >
+                                <h4 class="heading">Via Message</h4>
                                 <form >
                                     <div class="bx--grid" style="padding-left: 1rem;padding-right: 1rem;">
                                         <div class="bx--row">
@@ -30,7 +30,7 @@
                                                 <div class="bx--form-item">
                                                     <label for="text-input-3" class="bx--label">Name</label>
                                                     <input id="text-input-3" type="text" required
-                                                           class="bx--text-input"
+                                                           class="bx--text-input bx--text-input--light"
                                                            placeholder="ex. Juan">
                                                 </div>
                                             </div>
@@ -38,7 +38,7 @@
                                                 <div class="bx--form-item">
                                                     <label for="text-input-4" class="bx--label">Email</label>
                                                     <input id="text-input-4" type="email" required
-                                                           class="bx--text-input"
+                                                           class="bx--text-input bx--text-input--light"
                                                            placeholder="ex. juan@gmail.com">
                                                 </div>
                                             </div>
@@ -46,7 +46,7 @@
                                     </div>
                                     <div class="bx--form-item" style="padding-top: 0.5rem;">
                                         <label for="text-area-2" class="bx--label">Message</label>
-                                        <textarea id="text-area-2" class="bx--text-area" required
+                                        <textarea id="text-area-2" class="bx--text-area bx--text-area--light" required
                                                   rows="6" cols="50" placeholder="ex. How about a Skype meeting..."></textarea>
                                     </div>
                                     <div class="bx--form-item">

@@ -1,12 +1,12 @@
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Fabrx">
-    <meta name="keywords" content="Fabrx">
-    <meta name="author" content="">
+    <meta name="description" content="{{if .ctx.IsHome}}{{print .ctx.Description}}{{else}}{{with .ctx.Description}}{{print .}}{{end}}{{end}}">
+    <meta name="keywords" content="{{if .ctx.IsHome}}{{print .ctx}}{{else}}{{with .ctx.Keywords}}{{delimit . " "}}{{end}}{{end}}">
+    <meta name="author" content="{{.ctx.Site.Params.ownerFirstName}} {{.ctx.Site.Params.ownerLastName}}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Title</title>
+    <title>{{if .ctx.IsHome}}{{print .ctx.Title}}{{else}}{{with .ctx.Title}}{{print .}}{{end}}{{end}}</title>
     <link href="../assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
-    <!-- Fabrx External CSS -->
+
     {{ $styles:=slice
     (resources.Get "css/styles7.css")
     }}
