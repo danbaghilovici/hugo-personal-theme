@@ -1,6 +1,7 @@
 {{ $allProjects:= where .ctx.Site.Pages "Section" "portfolio"   }}
 {{ $projects:=(where $allProjects ".IsPage" true).Reverse}}
 {{ $listPage:=(first 1 (where $allProjects ".IsNode" true)) }}
+{{ $paginator:=.ctx.Paginate $projects 3}}
 <section id="portfolio-list-section" >
 {{if .onHome}}
     <div class="bx--grid" >
@@ -11,16 +12,17 @@
             <div class="bx--col">
                 <div class="bx--grid--condensed">
                     <div class="bx--row bx--row--condensed">
-                        {{range first 3 $projects}}
-                        <div class="bx--col-lg-6 bx--col-md-8">
+                        {{range $i,$project:=first 3 $projects}}
+                        <div class="bx--col-lg-6" style="padding-top: 0;padding-bottom: 0;">
                             {{- partial "components/card.html"
                             ( dict
                             "ctx" .
-                            "media" .Params.Media
-                            "heading" .Params.Title
-                            "copy" .Params.Description
-                            "link" .Permalink
-                            "ctaText" "Read More"
+                            "media" $project.Params.Media
+                            "heading" $project.Params.Title
+                            "copy" $project.Params.Description
+                            "link" $project.Permalink
+                            "ctaText" "Explore"
+                            "index" false
                             )
                             -}}
                         </div>
@@ -39,6 +41,7 @@
                             -}}
                         </div>
                         {{end}}
+
                     </div>
 
 
@@ -55,20 +58,23 @@
         <div class="bx--col">
             <div class="bx--grid--condensed">
                 <div class="bx--row">
-                    {{range $projects}}
-                    <div class="bx--col-lg-4 bx--col-md-4">
-                        {{- partial "components/card.html"
-                        ( dict
-                        "ctx" .
-                        "media" .Params.Media
-                        "heading" .Params.Title
-                        "copy" .Params.Description
-                        "link" .Permalink
-                        "ctaText" "Read More"
-                        )
-                        -}}
+                    {{range $i,$project:=$paginator.Pages}}
+                    <div class="bx--col-lg-12">
+                        {{- partial "components/card-in-card.html"
+                        (dict "ctx" $project
+                        "inverse" (modBool $i 2)
+
+                        ) -}}
                     </div>
                     {{end}}
+                </div>
+                <div class="bx--row">
+                    <div class="bx--col" ></div>
+
+                    <div class="bx--col" >
+                        {{- partial "components/pagination" (dict "ctx" . "paginator" $paginator) -}}
+                    </div>
+                    <div class="bx--col" ></div>
                 </div>
             </div>
         </div>

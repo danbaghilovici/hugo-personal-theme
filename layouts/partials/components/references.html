@@ -1,0 +1,17 @@
+{{with .post.Params.references}}
+    {{if eq $.headless false}}
+    <div class="bx--col-lg-12" id="references-group">
+        <h5>Resources</h5>
+        {{else}}
+        <div id="references-group">
+            {{end}}
+            <ol>
+                {{range .}}
+                    {{range $k,$v:=.}}
+                        <li><a href="{{$v}}">{{$k}}</a> </li>
+                    {{end}}
+                {{end}}
+            </ol>
+        </div>
+{{end}}
+

@@ -1,3 +1,9 @@
 {{define "main"}}
-<p>default error</p>
+<section class="full-section" id="error-page">
+    <div class="bx--grid">
+        <div class="bx--row">
+            {{- partial "components/error.html" . -}}
+        </div>
+    </div>
+</section>
 {{end}}

@@ -1,5 +1,6 @@
 {{define "main"}}
 {{ $image := resources.Get "imgs/home-lead-image.jpg" }}
+{{- partial "components/notification.html" . -}}
 <section class="leadspace" id="home-leadspace">
     <div class="bx--grid">
         <div class="bx--row--condensed heading-row">
@@ -13,8 +14,8 @@
             </div>
         </div>
         <div class="bx--row--condensed cta-row">
-            <button class="bx--btn bx--btn--secondary">Explore portfolio</button>
             <button class="bx--btn bx--btn--primary">Explore portfolio</button>
+            <button class="bx--btn bx--btn--secondary">Explore portfolio</button>
 
         </div>
     </div>
@@ -22,7 +23,7 @@
          style="
          background-image: url('{{$image.Permalink}}')"></div>
 </section>
-{{print $.Site}}
+
 <section style="">
     <div class="bx--grid" >
         <div class="bx--row">
@@ -30,36 +31,51 @@
                 <h5>What technologies do I use?</h5>
             </div>
             <div class="bx--col">
-                <p>Having an undestanding of multiple technologies always helped me better choose the right tools I will need for a project. Below is a quick overview of my main technical skill sets and technologies I use.</p>
-                <div class="bx--grid--condensed">
-                    {{range .Site.Params.ownerSkillsSet}}
-                    <div class="bx--row ">
-                        <div class="bx--col">
-                            <div  class="bx--tile"  >
-                                <p>{{.title}}</p>
-                            </div>
-                        </div>
-                        {{range .libs}}
-                        <div class="bx--col">
-                            <div class="bx--tile" >
-                                <p>{{.title}}</p></div>
-                        </div>
-                        {{end}}
-
-
-                    </div>
-<!--                    <div class="bx&#45;&#45;row">-->
-<!--                        <div class="bx&#45;&#45;col">-->
-<!--                            <div class="bx&#45;&#45;hr"></div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-                    {{end}}
-
-                </div>
+                <p>Having an understanding of multiple technologies always helped me better choose the right tools I will need for a project. Below is a quick overview of my main technical skill sets and technologies I use.</p>
+                <p>I'm a passionate software developer that makes the use of best programming practices a priority. Knowing the technologies at a deeper level allows me to optimize for the best performance available, be either on the front end, back end or on areas in between. Having worked in the field made me discover the value that brings shipping a product on time and with consistent updates, this way the satisfaction of the clients is always met. I'm always interested in learning new technologies and discover new areas of software in this industry.</p>
             </div>
         </div>
     </div>
 
+</section>
+<section style="">
+    <div class="bx--grid">
+        <div class="bx--row">
+            <div class="bx--col-lg-2">
+
+            </div>
+            <div class="bx--col">
+                <section class="bx--structured-list">
+                    <div class="bx--structured-list-thead">
+                        <div class="bx--structured-list-row bx--structured-list-row--header-row">
+                            <div class="bx--structured-list-th">Core technologies</div>
+                            <div class="bx--structured-list-th">Frameworks / Libraries / Utilities </div>
+                        </div>
+                    </div>
+                    <div class="bx--structured-list-tbody">
+                        {{range .Site.Params.ownerSkillsSet}}
+                        <div class="bx--structured-list-row">
+                            <div class="bx--structured-list-td bx--structured-list-content--nowrap">{{.title}}</div>
+                            <div class="bx--structured-list-td">
+                                {{range .libs}}
+                                <button class="bx--tag bx--tag--blue">
+                                    <span class="bx--tag__label">{{.title}}</span>
+                                </button>
+                                {{end}}
+                            </div>
+
+
+
+                        </div>
+                        {{end}}
+                    </div>
+                </section>
+            </div>
+            <div class="bx--col">
+                <img src="https://ghchart.rshah.org/dntzbgh">
+            </div>
+        </div>
+    </div>
 </section>
 
 {{- partial "pages/projects-list.html" (dict "ctx" . "onHome" true) -}}

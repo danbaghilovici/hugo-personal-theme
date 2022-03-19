@@ -1,0 +1,21 @@
+{{if gt (len (.post.GetTerms "tags")) 0}}
+{{if eq .headless false}}
+  <div class="bx--col-lg-12" id="tags-group">
+    <h5>Tags</h5>
+{{else}}
+    <div id="tags-group" >
+{{end}}
+    {{range .post.GetTerms "tags"}}
+    <button  class="bx--tag ">
+      <span class="bx--tag__label">{{.LinkTitle}}</span>
+    </button>
+    {{end}}
+{{if eq .headless false}}
+  </div>
+{{else}}
+  </div>
+{{end}}
+
+{{end}}
+
+

@@ -1,3 +1,39 @@
 {{ define "main" }}
-portfolio-single
+<section class="full-section">
+    <div class="bx--grid post">
+        <div class="bx--row">
+            <div class="bx--col-lg-2">
+                <h5>Table of contents</h5>
+                {{ .TableOfContents }}
+            </div>
+            <div class="bx--col-lg">
+                {{.Content}}
+                <hr class="bx--hr">
+            </div>
+            <div class="bx--col-lg-2 ">
+            </div>
+        </div>
+
+    </div>
+
+<!--    <div class="bx&#45;&#45;grid">-->
+<!--        <div class="bx&#45;&#45;row">-->
+<!--            <div class="bx&#45;&#45;col-lg-2">-->
+<!--                <h5>More to read</h5>-->
+<!--            </div>-->
+<!--            <div class="bx&#45;&#45;col-lg">-->
+<!--                <div class="bx&#45;&#45;grid&#45;&#45;condensed">-->
+<!--                    <div class="bx&#45;&#45;row">-->
+<!--                        <div class="bx&#45;&#45;col">-->
+<!--                            {{- partial "components/next-card.html" (dict "ctx" .PrevInSection "isNext" false) -}}-->
+<!--                        </div>-->
+<!--                        <div class="bx&#45;&#45;col">-->
+<!--                            {{- partial "components/next-card.html" (dict "ctx" .NextInSection "isNext" true) -}}-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+</section>
 {{ end }}

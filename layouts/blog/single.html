@@ -6,13 +6,27 @@
                 <h5>Table of contents</h5>
                 {{ .TableOfContents }}
             </div>
-            <div class="bx--col-lg ">
+            <div class="bx--col-lg">
                 {{.Content}}
                 <hr class="bx--hr">
+            </div>
+            <div class="bx--col-lg-2 post-right-side">
+                <div class="bx--grid--condensed">
+                    <div class="bx--row">
+                        {{- partial "components/share-buttons.html" (dict "post" . "headless" false) -}}
+                        {{- partial "components/tags.html" (dict "post" . "headless" false) -}}
+                        {{- partial "components/references.html" (dict "post" . "headless" false) -}}
+                        <hr>
+
+                    </div>
+                </div>
+
+
             </div>
         </div>
 
     </div>
+
     <div class="bx--grid">
         <div class="bx--row">
             <div class="bx--col-lg-2">

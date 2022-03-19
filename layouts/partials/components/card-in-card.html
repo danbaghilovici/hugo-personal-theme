@@ -1,0 +1,33 @@
+<div class="card-in-card ">
+    <div class="bx--grid--condensed">
+        <div class="bx--row">
+            <div class="bx--col"></div>
+        </div>
+        <div class="bx--row">
+
+            {{if ne .inverse true}}
+            <div class="bx--col"></div>
+            {{end}}
+
+            <div class="bx--col-md-4 bx--col-lg-4 content">
+                {{- partial "components/card.html"
+                ( dict
+                "ctx" .
+                "media" false
+                "heading" .ctx.Params.Title
+                "copy" .ctx.Params.Description
+                "link" .ctx.Permalink
+                "ctaText" "Discover"
+                )
+                -}}
+            </div>
+            {{if eq .inverse true}}
+            <div class="bx--col"></div>
+            {{end}}
+        </div>
+    </div>
+    <div class="media"
+         style="background-image: url('{{.ctx.Params.media}}')">
+
+    </div>
+</div>

@@ -1,9 +1,11 @@
 {{ $allBlogs:= where .ctx.Site.Pages "Section" "blog"   }}
 {{ $blogPosts:=(where $allBlogs ".IsPage" true).Reverse}}
 {{ $listPage:=(first 1 (where $allBlogs ".IsNode" true)) }}
-<section id="portfolio-list-section" >
+{{ $paginator:= .ctx.Paginate $blogPosts 12}}
     {{if .onHome}}
-    <div class="bx--grid" >
+        {{if gt (len $blogPosts) 0}}
+    <section id="blog-list-section" >
+            <div class="bx--grid" >
         <div class="bx--row">
             <div class="bx--col-lg-2">
                 <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h5>
@@ -25,19 +27,21 @@
                             -}}
                         </div>
                         {{end}}
-                        {{range $listPage}}
-                        <div class="bx--col-lg-4 bx--col-md-4">
-                            {{- partial "components/card.html"
-                            ( dict
-                            "ctx" .
-                            "heading" "Discover more blog posts"
-                            "copy" .Params.Description
-                            "link" .Permalink
-                            "ctaText" "Read More"
-                            "index" true
-                            )
-                            -}}
-                        </div>
+                        {{if gt (len $blogPosts) 5}}
+                            {{range $listPage}}
+                            <div class="bx--col-lg-4 bx--col-md-4">
+                                {{- partial "components/card.html"
+                                ( dict
+                                "ctx" .
+                                "heading" "Discover more blog posts"
+                                "copy" .Params.Description
+                                "link" .Permalink
+                                "ctaText" "Read More"
+                                "index" true
+                                )
+                                -}}
+                            </div>
+                            {{end}}
                         {{end}}
                     </div>
 
@@ -46,9 +50,12 @@
             </div>
         </div>
     </div>
+        {{end}}
     {{else}}
+    <section id="blog-list-section" >
     <div class="bx--grid" >
         <div class="bx--row">
+            {{if gt (len $blogPosts) 0}}
             <div class="bx--col-lg-2 " >
                 <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h5>
                 <br>
@@ -58,23 +65,43 @@
             <div class="bx--col">
                 <div class="bx--grid--condensed">
                     <div class="bx--row">
-                        {{range $blogPosts}}
-                        <div class="bx--col-lg-4 bx--col-md-4">
-                            {{- partial "components/card.html"
-                            ( dict
-                            "ctx" .
-                            "media" .Params.Media
-                            "heading" .Params.Title
-                            "copy" .Params.Description
-                            "link" .Permalink
-                            "ctaText" "Read More"
-                            )
-                            -}}
-                        </div>
+                        {{if gt (len $blogPosts) 0}}
+                            {{range $paginator.Pages}}
+                            <div class="bx--col-lg-4 bx--col-md-4">
+                                {{- partial "components/card.html"
+                                ( dict
+                                "ctx" .
+                                "media" false
+                                "heading" .Params.Title
+                                "copy" .Params.Description
+                                "link" .Permalink
+                                "ctaText" "Read More"
+                                )
+                                -}}
+                            </div>
+                            {{end}}
+
+                        {{else}}
+                        <h1>No blog posts imported yet!</h1>
                         {{end}}
                     </div>
+                    {{if gt (len $blogPosts) 0}}
+                    <div class="bx--row">
+                        <div class="bx--col" ></div>
+
+                        <div class="bx--col" >
+                            {{- partial "components/pagination" (dict "ctx" . "paginator" $paginator) -}}
+                        </div>
+                        <div class="bx--col" ></div>
+                    </div>
+                    {{end}}
+
+
                 </div>
             </div>
+            {{else}}
+            {{- partial "components/error.html" . -}}
+            {{end}}
         </div>
     </div>
     {{end}}
