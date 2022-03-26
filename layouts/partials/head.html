@@ -14,24 +14,26 @@
         <link href="{{.Permalink  }}" rel="stylesheet" type="text/css"/>
     {{end}}
 <!--    <link href="https://unpkg.com/carbon-components/css/carbon-components.min.css" rel="stylesheet" type="text/css"/>-->
-<!--    <style>-->
-<!--        @media only screen and (min-width: 66rem) {-->
-<!--            .bx&#45;&#45;header__menu-trigger,.bx&#45;&#45;navigation{-->
-<!--                display: none;-->
-<!--            }-->
+    <style>
+        /*// header fix*/
 
-<!--        }-->
-<!--        body{-->
-<!--            min-height: 100vh;-->
-<!--        }-->
-<!--        .bx&#45;&#45;header__global button{-->
-<!--            display: inline-block;-->
-<!--        }-->
+        @media only screen and (min-width: 66rem) {
+            .bx--header__menu-trigger,.bx--navigation{
+                display: none;
+            }
 
-<!--        /*.bx&#45;&#45;header__action{*/-->
-<!--        /*    display: inline-block;*/-->
-<!--        /*}*/-->
-<!--    </style>-->
+        }
+        .bx--header__global button{
+            display: inline-block;
+        }
+
+        /*.bx--header__action{*/
+        /*    display: inline-block;*/
+        /*}*/
+        .bx--navigation-icon svg path{
+            fill: white;
+        }
+    </style>
 
 
 

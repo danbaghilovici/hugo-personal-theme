@@ -14935,12 +14935,13 @@ html {
 }
 
 .next-post-tile {
-  height: 10rem;
+  min-height: 10rem;
   width: 100%;
 }
 
 #share-buttons-group .bx--row .bx--col {
   flex-grow: 0;
+  flex-shrink: 0;
 }
 
 #error-page {
