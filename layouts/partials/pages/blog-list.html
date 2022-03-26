@@ -14,7 +14,7 @@
                 <div class="bx--grid--condensed">
                     <div class="bx--row">
                         {{range first 5 $blogPosts}}
-                        <div class="bx--col-lg-4 bx--col-md-4">
+                        <div class="bx--col-md-4 bx--col-lg-6 bx--col-xlg-4">
                             {{- partial "components/card.html"
                             ( dict
                             "ctx" .
@@ -29,7 +29,7 @@
                         {{end}}
                         {{if gt (len $blogPosts) 5}}
                             {{range $listPage}}
-                            <div class="bx--col-lg-4 bx--col-md-4">
+                            <div class="bx--col-md-4 bx--col-lg-6 bx--col-xlg-4">
                                 {{- partial "components/card.html"
                                 ( dict
                                 "ctx" .
@@ -64,10 +64,10 @@
             </div>
             <div class="bx--col">
                 <div class="bx--grid--condensed">
-                    <div class="bx--row">
+                    <div class="bx--row list-content-row" >
                         {{if gt (len $blogPosts) 0}}
                             {{range $paginator.Pages}}
-                            <div class="bx--col-lg-4 bx--col-md-4">
+                            <div class=" bx--col-md-4 bx--col-lg-6 bx--col-xlg-4">
                                 {{- partial "components/card.html"
                                 ( dict
                                 "ctx" .

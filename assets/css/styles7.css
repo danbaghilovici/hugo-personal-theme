@@ -15002,4 +15002,8 @@ html {
   margin-left: 0;
 }
 
+.list-content-row {
+  min-height: 90vh;
+}
+
 /*# sourceMappingURL=styles7.css.map */
