@@ -22,7 +22,7 @@
                             "heading" .Params.Title
                             "copy" .Params.Description
                             "link" .Permalink
-                            "ctaText" "Read More"
+                            "ctaText" "Nullam id efficitur"
                             )
                             -}}
                         </div>
@@ -33,10 +33,10 @@
                                 {{- partial "components/card.html"
                                 ( dict
                                 "ctx" .
-                                "heading" "Discover more blog posts"
+                                "heading" "Nunc lobortis"
                                 "copy" .Params.Description
                                 "link" .Permalink
-                                "ctaText" "Read More"
+                                "ctaText" "Nullam id efficitur"
                                 "index" true
                                 )
                                 -}}
@@ -75,14 +75,14 @@
                                 "heading" .Params.Title
                                 "copy" .Params.Description
                                 "link" .Permalink
-                                "ctaText" "Read More"
+                                "ctaText" "Aenean id"
                                 )
                                 -}}
                             </div>
                             {{end}}
 
                         {{else}}
-                        <h1>No blog posts imported yet!</h1>
+                        <h1>Mauris posuere a diam et interdum.</h1>
                         {{end}}
                     </div>
                     {{if gt (len $blogPosts) 0}}
