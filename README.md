@@ -1,10 +1,13 @@
-To compile the styles:
+Theme for personal site.
 
-```
-cd modules/bootstrap
-npm install
-# compile styles to hugo resources folder
-sass scss\custom.scss:..\bootstrap\..\..\assets\custom.css --no-source-map
-# this is for separate compiling
-#sass scss\bootstrap.scss:..\bootstrap\..\..\assets\bootstrap.css scss\custom.scss:..\bootstrap\..\..\assets\custom.css --no-source-map
-```
+Styles based on carbon.
+
+To develop:
+* init the module
+* checkout to branch `carbon-v11-theme`
+* run `npm install / yarn install`
+* run `npm run build`
+* navigate to `modules/carbon/packages/styles`
+* run `sass index.scss index.css --load-path=../../node_modules` go generate css
+
+
