@@ -8,7 +8,7 @@
     <link href="../assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
 
     {{ $styles:=slice
-    (resources.Get "css/styles7.css" | minify )
+    (resources.Get "css/styles.css" | minify )
     }}
     {{range $styles}}
         <link href="{{.Permalink  }}" rel="stylesheet" type="text/css"/>
